@@ -1,0 +1,147 @@
+﻿Tabelle: 31111-0006
+Baugenehmigungen neuer Gebäude: Deutschland, Jahre,;;;;;
+Gebäudeart, Überwiegend verwendeter Baustoff;;;;;
+Statistik der Baugenehmigungen;;;;;;;;
+Deutschland;;;;;;;;
+;;;Neue Gebäude;;Rauminhalt;;Veranschlagte Kosten des Bauwerks;
+;;;Anzahl;Anzahl;1000 cbm;1000 cbm;Tsd. EUR;Tsd. EUR
+2022;Wohngebäude;Stahl;37;e;45;e;26827;e
+;;Stahlbeton;9266;e;27003;e;11295625;e
+;;Ziegel;32757;e;45562;e;19089443;e
+;;Kalksandstein;19049;e;41458;e;15772554;e
+;;Porenbeton;21653;e;21302;e;8356476;e
+;;Leichtbeton/Bims;3088;e;3708;e;1506957;e
+;;Holz;23534;e;21558;e;9728432;e
+;;Sonstiger Baustoff;1275;e;1459;e;530351;e
+;Wohngebäude mit 1 Wohnung;Stahl;22;e;8;e;2702;e
+;;Stahlbeton;4787;e;4141;e;1705241;e
+;;Ziegel;22555;e;20767;e;8730326;e
+;;Kalksandstein;10876;e;8763;e;3307244;e
+;;Porenbeton;17160;e;13144;e;5164738;e
+;;Leichtbeton/Bims;2242;e;1954;e;792142;e
+;;Holz;19499;e;15087;e;6887222;e
+;;Sonstiger Baustoff;970;e;748;e;285581;e
+;Wohngebäude mit 2 Wohnungen;Stahl;3;e;2;e;403;e
+;;Stahlbeton;822;e;1091;e;456102;e
+;;Ziegel;4891;e;6317;e;2622382;e
+;;Kalksandstein;1898;e;2280;e;852836;e
+;;Porenbeton;2622;e;2859;e;1118701;e
+;;Leichtbeton/Bims;429;e;530;e;214082;e
+;;Holz;3043;e;3376;e;1463759;e
+;;Sonstiger Baustoff;156;e;188;e;67200;e
+;Wohngebäude mit 3 oder mehr Wohnungen;Stahl;7;e;17;e;14303;e
+;;Stahlbeton;3593;e;21215;e;8805569;e
+;;Ziegel;5273;e;18207;e;7604262;e
+;;Kalksandstein;6241;e;29976;e;11466471;e
+;;Porenbeton;1853;e;5238;e;2049848;e
+;;Leichtbeton/Bims;416;e;1217;e;499533;e
+;;Holz;980;e;2978;e;1326130;e
+;;Sonstiger Baustoff;147;e;520;e;176825;e
+;Wohnheime;Stahl;5;e;18;e;9419;e
+;;Stahlbeton;64;e;556;e;328713;e
+;;Ziegel;38;e;271;e;132473;e
+;;Kalksandstein;34;e;438;e;146003;e
+;;Porenbeton;18;e;60;e;23189;e
+;;Leichtbeton/Bims;1;e;6;e;1200;e
+;;Holz;12;e;118;e;51321;e
+;;Sonstiger Baustoff;2;e;3;e;745;e
+;Wohngebäude mit Eigentumswohnungen;Stahl;1;e;0;e;165;e
+;;Stahlbeton;1764;e;9821;e;4047249;e
+;;Ziegel;2604;e;9884;e;4120545;e
+;;Kalksandstein;2641;e;12673;e;4887599;e
+;;Porenbeton;724;e;2118;e;834945;e
+;;Leichtbeton/Bims;135;e;462;e;184429;e
+;;Holz;384;e;1233;e;542029;e
+;;Sonstiger Baustoff;42;e;218;e;80417;e
+;Nichtwohngebäude;Stahl;6604;e;46480;e;4768015;e
+;;Stahlbeton;7128;e;148148;e;30608925;e
+;;Ziegel;2955;e;9379;e;2713699;e
+;;Kalksandstein;1657;e;8409;e;2996610;e
+;;Porenbeton;1263;e;3523;e;835179;e
+;;Leichtbeton/Bims;354;e;633;e;151095;e
+;;Holz;5533;e;17274;e;3616584;e
+;;Sonstiger Baustoff;503;e;2775;e;263173;e
+;Anstaltsgebäude;Stahl;8;e;37;e;28363;e
+;;Stahlbeton;132;e;2636;e;1494348;e
+;;Ziegel;64;e;559;e;251493;e
+;;Kalksandstein;127;e;1596;e;810896;e
+;;Porenbeton;39;e;128;e;45770;e
+;;Leichtbeton/Bims;5;e;70;e;28590;e
+;;Holz;102;e;352;e;137700;e
+;;Sonstiger Baustoff;6;e;65;e;28808;e
+;Büro- und Verwaltungsgebäude;Stahl;189;e;947;e;318531;e
+;;Stahlbeton;816;e;17320;e;7984565;e
+;;Ziegel;309;e;1422;e;574283;e
+;;Kalksandstein;246;e;1358;e;548995;e
+;;Porenbeton;122;e;393;e;161677;e
+;;Leichtbeton/Bims;37;e;60;e;21493;e
+;;Holz;253;e;1212;e;538666;e
+;;Sonstiger Baustoff;24;e;57;e;21590;e
+;Landwirtschaftliche Betriebsgebäude;Stahl;1444;e;9120;e;453486;e
+;;Stahlbeton;993;e;4836;e;339836;e
+;;Ziegel;346;e;927;e;118652;e
+;;Kalksandstein;62;e;145;e;15433;e
+;;Porenbeton;42;e;120;e;14812;e
+;;Leichtbeton/Bims;19;e;38;e;5361;e
+;;Holz;1811;e;5552;e;406158;e
+;;Sonstiger Baustoff;75;e;1021;e;28131;e
+;Nichtlandwirtschaftliche Betriebsgebäude;Stahl;4659;e;35111;e;3497942;e
+;;Stahlbeton;4415;e;110884;e;14427407;e
+;;Ziegel;1874;e;5001;e;1086857;e
+;;Kalksandstein;810;e;3173;e;747549;e
+;;Porenbeton;880;e;2431;e;456056;e
+;;Leichtbeton/Bims;254;e;392;e;68827;e
+;;Holz;2750;e;7631;e;1238289;e
+;;Sonstiger Baustoff;345;e;1422;e;131179;e
+;Fabrik- und Werkstattgebäude;Stahl;1032;e;10279;e;1220548;e
+;;Stahlbeton;1139;e;27174;e;4165550;e
+;;Ziegel;319;e;1116;e;261187;e
+;;Kalksandstein;142;e;672;e;125864;e
+;;Porenbeton;114;e;713;e;148473;e
+;;Leichtbeton/Bims;19;e;103;e;14156;e
+;;Holz;346;e;2434;e;329133;e
+;;Sonstiger Baustoff;36;e;195;e;22593;e
+;Handelsgebäude;Stahl;167;e;1223;e;183744;e
+;;Stahlbeton;374;e;7889;e;1415466;e
+;;Ziegel;199;e;1887;e;381612;e
+;;Kalksandstein;73;e;797;e;172839;e
+;;Porenbeton;49;e;365;e;72618;e
+;;Leichtbeton/Bims;10;e;62;e;9733;e
+;;Holz;109;e;580;e;114623;e
+;;Sonstiger Baustoff;7;e;50;e;16855;e
+;Warenlagergebäude;Stahl;2690;e;20002;e;1617789;e
+;;Stahlbeton;1453;e;65603;e;4599900;e
+;;Ziegel;476;e;1099;e;168355;e
+;;Kalksandstein;144;e;543;e;70574;e
+;;Porenbeton;142;e;912;e;99628;e
+;;Leichtbeton/Bims;46;e;105;e;11950;e
+;;Holz;1122;e;3337;e;504784;e
+;;Sonstiger Baustoff;212;e;1062;e;65145;e
+;Hotels und Gaststätten;Stahl;32;e;47;e;16285;e
+;;Stahlbeton;139;e;2768;e;1400201;e
+;;Ziegel;85;e;266;e;117430;e
+;;Kalksandstein;65;e;576;e;233297;e
+;;Porenbeton;220;e;142;e;58105;e
+;;Leichtbeton/Bims;7;e;13;e;6119;e
+;;Holz;175;e;396;e;178527;e
+;;Sonstiger Baustoff;6;e;29;e;12724;e
+;Sonstige Nichtwohngebäude;Stahl;304;e;1266;e;469693;e
+;;Stahlbeton;772;e;12472;e;6362769;e
+;;Ziegel;362;e;1469;e;682414;e
+;;Kalksandstein;412;e;2138;e;873737;e
+;;Porenbeton;180;e;452;e;156864;e
+;;Leichtbeton/Bims;39;e;72;e;26824;e
+;;Holz;617;e;2527;e;1295771;e
+;;Sonstiger Baustoff;53;e;210;e;53465;e
+;Ausgewählte Infrastrukturgebäude(Nichtwohngebäude);Stahl;369;e;1651;e;556054;e
+;;Stahlbeton;1285;e;17327;e;8340456;e
+;;Ziegel;499;e;2353;e;1042302;e
+;;Kalksandstein;564;e;3807;e;1707549;e
+;;Porenbeton;212;e;704;e;246262;e
+;;Leichtbeton/Bims;43;e;162;e;61850;e
+;;Holz;667;e;2919;e;1446667;e
+;;Sonstiger Baustoff;57;e;277;e;86400;e
+__________
+Baugenehmigungen: Einschließlich Fertigteilbau.
+© Statistisches Bundesamt (Destatis), 2024
+Stand: 21.11.2024 / 18:15:42

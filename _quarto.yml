@@ -1,0 +1,76 @@
+project:
+  type: book
+  output-dir: output/book/
+
+book:
+  # Metadaten / meta data
+  title: "Bausteine Computergestützter Datenanalyse"
+  # subtitle: "Anwendungsbaustein Sensordatenanalyse"
+  author:
+    - Lukas Arnold
+    - Simone Arnold
+    - Florian Bagemihl
+    - Matthias Baitsch
+    - Marc Fehr
+    - Franca Hollmann
+    - Maik Poetzsch
+    - Sebastian Seipel
+  date: today # "2024-03-05" Jahr-Monat-Tag / year-month-day
+  chapters:
+    - index.qmd
+    - skript/einlesen-strukturierter-datensaetze.qmd
+
+  sidebar:
+    title: "Methodenbaustein: Einlesen strukturierter Datensätze"
+    logo: "skript/00-bilder/logo_with_text_new.svg"    
+   
+## Bibliographie / bibliography
+bibliography: skript/bibliography.bib
+biblio-style: authoryear
+
+## Spracheinstellungen / language settings
+lang: de
+language:
+  de:
+    crossref-imp-title: "Definition"
+    crossref-imp-prefix: "Definition"
+    crossref-lst-title: "Code-Block"
+    crossref-lst-prefix: "Code-Block"
+    crossref-nte-title: "Beispiel"
+    crossref-nte-prefix: "Beispiel"
+    crossref-tip-title: "Tipp"
+    crossref-tip-prefix: "Tipp"
+    crossref-wrn-title: "Hinweis"
+    crossref-wrn-prefix: "Hinweis"
+
+## Formatoption / formating options
+format:
+  html:
+    ## Logo
+    ### Logo in Quarto Books
+    favicon: "skript/00-bilder/favicon_bcd_new.svg"
+    
+    ### Logo in HTML
+    include-in-header:
+      text: |
+        <link rel="shortcut icon" href="skript/00-bilder/favicon_bcd_new.svg" />
+        <link rel="icon" type="image/x-icon" href="logo.ico">
+    
+    default-image-extension: svg
+    code-copy: true # hover is default
+  pdf:
+    cite-method: biblatex
+    biblio-title: Quellen
+    default-image-extension: pdf # Vektorgrafiken werden als PDF eingebunden / vector grafics are embedded as PDF
+
+## Inhaltsverzeichnis / table of contents
+toc: true
+number-sections: true
+number-depth: 2
+
+## Objekteinstellungen / object options
+cap-location: bottom
+fig-align: center
+mermaid: 
+  theme: neutral 
+

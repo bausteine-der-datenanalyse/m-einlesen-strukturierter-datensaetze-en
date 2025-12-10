@@ -1,0 +1,12 @@
+numpy
+jupyter
+pandas
+openpyxl
+tables
+xlrd
+h5py
+netCDF4
+matplotlib
+datetime
+pytz
+
