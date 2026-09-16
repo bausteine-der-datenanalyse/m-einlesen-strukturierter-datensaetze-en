@@ -5,8 +5,7 @@ openpyxl
 tables
 xlrd
 h5py
-netCDF4
+netCDF4==1.7.2
 matplotlib
 datetime
 pytz
-

@@ -1,4 +1,4 @@
-# m-einlesen-strukturierter-datensätze
-Methodenbaustein Einlesen strukturierter Datensätze
+# m-einlesen-strukturierter-datensaetze-en
+Reading Structured Datasets Method Module
 
-https://bausteine-der-datenanalyse.github.io/m-einlesen-strukturierter-datensaetze/output/book/
+https://bausteine-der-datenanalyse.github.io/m-einlesen-strukturierter-datensaetze-en/output/book/

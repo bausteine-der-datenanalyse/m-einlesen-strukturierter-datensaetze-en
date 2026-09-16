@@ -1,6 +1,6 @@
 # Prerequisites
 
-The processing time for this module is approximately **placeholder**. The following modules are required for working through this module, and the listed libraries are used:
+The processing time for this module is approximately **10 hours**. The following modules are required for working through this module, and the listed libraries are used:
 
 Modules:
 

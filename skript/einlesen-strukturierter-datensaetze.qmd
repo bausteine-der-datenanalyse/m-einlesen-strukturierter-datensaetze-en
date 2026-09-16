@@ -1670,12 +1670,11 @@ The function `pd.date_range()` generates an array of type `DatetimeIndex` with `
 
 print(pd.date_range(start = '2017', end = '2024', periods = 3), "\n")
 
-print(pd.date_range(start = '2017', end = '2024', freq = 'Y'), "\n")
+print(pd.date_range(start = '2017', end = '2024', freq = 'YE'), "\n")
 
 print(pd.date_range(end = '2024', freq = 'h', periods = 3))
 ```
 
-*Note: The function `pd.date_range()` will no longer support the alias 'Y' in the future. Instead, the aliases 'YS' (year start) or 'YE' (year end) can be used. Similarly, the alias 'M' will be replaced by 'MS' (month start) or 'ME' (month end) in the future.*
 :::
 
 Time differences are represented using a dedicated data type (see the following example).  
@@ -1926,7 +1925,7 @@ print(prices_numeric[0:2, :], prices_numeric.dtype)
 ```
 
 ### Pandas
-First, the wholesale prices file is read using the function `pd.read_csv()`, and the success is checked using the `pd.info()` method.
+First, the wholesale prices file is read using the function `pd.read_csv()`, and the success is checked using the `pd.DataFrame.info()` method.
 
 ``` {python}
 file_path = "01-daten/Gro_handelspreise_202301010000_202401010000_Stunde.csv"
@@ -1934,7 +1933,7 @@ prices = pd.read_csv(filepath_or_buffer = file_path)
 print(prices.info())
 ```
 
-Only one column is recognized because the dataset uses a semicolon as the delimiter. This can be specified with the argument `sep=';'` (default is comma). The success is checked using `pd.info()` and `pd.head()`.
+Only one column is recognized because the dataset uses a semicolon as the delimiter. This can be specified with the argument `sep=';'` (default is comma). The success is checked using `pd.DataFrame.info()` and `pd.DataFrame.head()`.
 
 ``` {python}
 file_path = "01-daten/Gro_handelspreise_202301010000_202401010000_Stunde.csv"
@@ -2442,7 +2441,7 @@ It’s also advisable to proceed step by step, developing a separate solution fo
 
 The dataset is read using the `pd.read_excel()` function.  
 The argument `sheet_name` is used to select the worksheet **Data**.  
-With the method `pd.head(n=10)`, you can identify the row index where the header ends and the data begins.  
+With the method `pd.DataFrame.head(n = 10)`, you can identify the row index where the header ends and the data begins.
 In this case, the header ends at row 8, which corresponds to index **7** in Python.
 
 **Read header**
