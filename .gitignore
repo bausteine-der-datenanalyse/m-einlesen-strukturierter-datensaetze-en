@@ -20,3 +20,4 @@ _environment
 
 # Ignore Jupyter cache files
 .jupyter_cache
+**/*.quarto_ipynb
