@@ -284,11 +284,11 @@ div.csl-indent {
 </header>
 
 
-<div id="4151e893" class="cell" data-execution_count="1">
+<div id="2045c0d9" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Preparation: reload modules from the previous chapter</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="f783bd10" class="cell" data-execution_count="2">
+<div id="20cdc7b3" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The + operator adds numbers</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span> <span class="op">+</span> <span class="dv">13</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -300,7 +300,7 @@ div.csl-indent {
 </div>
 </div>
 <p>The sorting function behaves differently depending on the data type.</p>
-<div id="de59a6b9" class="cell" data-execution_count="3">
+<div id="c7712afe" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a list of date strings</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dates <span class="op">=</span> pd.Series([<span class="st">'07.06.2000'</span>, <span class="st">'12.01.2000'</span>, <span class="st">'11.02.2000'</span>, <span class="st">'04.09.2000'</span>, <span class="st">'10.03.2000'</span>, <span class="st">'03.10.2000'</span>, <span class="st">'09.04.2000'</span>, <span class="st">'08.05.2000'</span>, <span class="st">'06.07.2000'</span>, <span class="st">'05.08.2000'</span>, <span class="st">'02.11.2000'</span>, <span class="st">'01.12.2000'</span>])</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>dates <span class="op">=</span> pd.to_datetime(dates, <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">.%m.%Y'</span>)</span>
@@ -344,14 +344,14 @@ Tip&nbsp;3.1: Check and Validate Data Types
 <section id="null-value-none" class="level4">
 <h4 class="anchored" data-anchor-id="null-value-none">Null Value <code>None</code></h4>
 <p>The so-called null value in Python is <code>None</code>, which is one of Python’s defined keywords.</p>
-<div id="8b212492" class="cell" data-execution_count="4">
+<div id="30d9d07e" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(<span class="va">None</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'NoneType'&gt;</code></pre>
 </div>
 </div>
 <p><code>None</code> represents non-existent values and objects. Empty (but existing) objects do not belong to the <code>None</code> data type.</p>
-<div id="32783b48" class="cell" data-execution_count="5">
+<div id="4d7a2cf7" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>empty_list <span class="op">=</span> []</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>empty_list <span class="op">==</span> <span class="va">None</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
@@ -359,7 +359,7 @@ Tip&nbsp;3.1: Check and Validate Data Types
 </div>
 </div>
 <p><code>None</code> can be passed as an argument to functions or returned by them. However, operations with <code>None</code> are not allowed.</p>
-<div id="4a0401df" class="cell" data-execution_count="6">
+<div id="c2558899" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Operations with None result in errors</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="va">None</span> <span class="op">+</span> <span class="dv">1</span>)</span>
@@ -373,7 +373,7 @@ Tip&nbsp;3.1: Check and Validate Data Types
 </div>
 </div>
 <p>One exception is conversion to a string.</p>
-<div id="ac1de226" class="cell" data-execution_count="7">
+<div id="16ab42f4" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One exception is conversion to strings</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="va">None</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">print(a) returns the null value:</span><span class="ch">\n</span><span class="st">"</span>, a, sep<span class="op">=</span><span class="st">""</span>)</span>
@@ -395,7 +395,7 @@ str(a) returns a string:</code></pre>
 <section id="nan" class="level4">
 <h4 class="anchored" data-anchor-id="nan">NaN</h4>
 <p>To work with missing values within a dataset, there is the value <code>NaN</code>, which belongs to the floating-point class. <code>NaN</code> stands for Not a Number and represents undefined or unrepresentable values. For example, the method <code>pd.diff()</code> calculates the difference between each value and its predecessor. Since the first value has no predecessor, <code>NaN</code> is produced.</p>
-<div id="5095ef00" class="cell" data-execution_count="8">
+<div id="4dd43322" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>my_series <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">8</span>])</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>my_series.diff()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
@@ -407,21 +407,21 @@ dtype: float64</code></pre>
 </div>
 </div>
 <p>Unlike <code>None</code>, <code>NaN</code> is not a built-in keyword in Python. The value <code>NaN</code> can be created using <code>float('nan')</code> or <code>float('NaN')</code>; capitalization does not matter. <code>NaN</code> therefore has the data type float. The <code>math</code> and <code>NumPy</code> modules also provide <code>math.nan</code> and <code>np.nan</code> to create <code>NaN</code>.</p>
-<div id="ff863158" class="cell" data-execution_count="9">
+<div id="4a3bd29a" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(<span class="bu">float</span>(<span class="st">'NaN'</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'float'&gt;</code></pre>
 </div>
 </div>
 <p>Operations can be performed with the value <code>NaN</code>. The result is always <code>NaN</code>.</p>
-<div id="3edd793b" class="cell" data-execution_count="10">
+<div id="b7555752" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">float</span>(<span class="st">'NaN'</span>) <span class="op">+</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>nan</code></pre>
 </div>
 </div>
 <p>Some functions can handle <code>NaN</code> as a placeholder for missing values.</p>
-<div id="b27cf834" class="cell" data-execution_count="11">
+<div id="6c6194eb" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python built-ins</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"sum():"</span>, <span class="bu">sum</span>([<span class="dv">1</span>, <span class="dv">2</span>, <span class="bu">float</span>(<span class="st">'NaN'</span>), <span class="dv">4</span>]), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"max():"</span>, <span class="bu">max</span>([<span class="dv">1</span>, <span class="dv">2</span>, <span class="bu">float</span>(<span class="st">'NaN'</span>), <span class="dv">4</span>]), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
@@ -460,7 +460,7 @@ Note&nbsp;3.1: Warning: Logical Behavior!
 <div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>The logical evaluation of missing values differs for <code>None</code> and <code>NaN</code>.</p>
-<div id="c2e46958" class="cell" data-execution_count="12">
+<div id="a6f34d4a" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>bool_values <span class="op">=</span> [<span class="va">None</span>, <span class="bu">float</span>(<span class="st">'NaN'</span>)]</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> element <span class="kw">in</span> bool_values:</span>
@@ -472,7 +472,7 @@ Boolean value of nan is True</code></pre>
 </div>
 </div>
 <p>This also applies to value equality.</p>
-<div id="80d01770" class="cell" data-execution_count="13">
+<div id="b037b774" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> element <span class="kw">in</span> bool_values:</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> element <span class="op">==</span> element</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Value equality of"</span>, element, <span class="st">"is"</span>, result)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

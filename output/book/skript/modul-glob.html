@@ -265,7 +265,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="1c527664" class="cell" data-execution_count="1">
+<div id="ff6be1a1" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Preparation: reload modules from the previous chapter</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -308,7 +308,7 @@ Placeholders, so called <code>wildcards</code>, can be used in <code>pathname</c
 </table>
 <p>&nbsp;</p>
 <p>Under the path <code>'01-daten/glob'</code>, there are various files, some located in a subfolder.</p>
-<div id="5066063e" class="cell" data-execution_count="2">
+<div id="e0dd2482" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> glob</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>folder_path <span class="op">=</span> <span class="st">'01-daten/glob'</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -320,7 +320,7 @@ Placeholders, so called <code>wildcards</code>, can be used in <code>pathname</c
 </div>
 <p>The <code>recursive</code> argument controls whether subfolders are also searched.<br>
 To include subfolders, <code>recursive</code> must be set to <code>True</code> and <code>**</code> must be used in the <code>pathname</code>.</p>
-<div id="648c53de" class="cell" data-execution_count="3">
+<div id="456f8b08" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>path_list <span class="op">=</span> glob.glob(pathname<span class="op">=</span><span class="st">'**'</span>, root_dir<span class="op">=</span>folder_path, recursive<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(path_list)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -359,7 +359,7 @@ Tip&nbsp;7.1: Sample solution using <code>glob</code>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="555c2971" class="cell" data-execution_count="4">
+<div id="e4085ef3" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>path_list <span class="op">=</span> glob.glob(pathname<span class="op">=</span><span class="st">'**/U*.csv'</span>, root_dir<span class="op">=</span>folder_path, recursive<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(path_list)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -374,7 +374,7 @@ Tip&nbsp;7.1: Sample solution using <code>glob</code>
 </div>
 <p>With the file paths, the files can be read into a list using a loop<br>
 (for readability, only the first 3 rows and first 3 columns are read).</p>
-<div id="0e45f293" class="cell" data-execution_count="5">
+<div id="4559654b" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>list_of_files <span class="op">=</span> []</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> path <span class="kw">in</span> path_list:</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    temp_df <span class="op">=</span> pd.read_csv(</span>
@@ -413,7 +413,7 @@ Unterordner glob/Unfallorte2023_LinRef.csv
 </div>
 </div>
 <p>The datasets from the list can then be assigned to their own objects.</p>
-<div id="3caccff0" class="cell" data-execution_count="6">
+<div id="827afc73" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>accident_data2020 <span class="op">=</span> list_of_files[<span class="dv">0</span>]</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>accident_data2021 <span class="op">=</span> list_of_files[<span class="dv">2</span>]</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>accident_data2022 <span class="op">=</span> list_of_files[<span class="dv">1</span>]</span>
@@ -434,7 +434,7 @@ dtype: object</code></pre>
 </div>
 </div>
 <p>The objects could also be merged into a single DataFrame.</p>
-<div id="ddd3464c" class="cell" data-execution_count="7">
+<div id="f1c23cd9" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># unify the column OID_ / OBJECTID</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>accident_data <span class="op">=</span> pd.concat(</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    [accident_data2020.iloc[:, <span class="dv">1</span>:<span class="dv">3</span>],</span>
@@ -558,7 +558,7 @@ Tip&nbsp;7.3: Sample solution: US State Facts and Figures
 <div class="callout-body-container callout-body">
 <p>Using the <code>glob</code> module, the paths of the files in the folder are stored in a list.<br>
 In a loop, each file is opened as a file object using the function <code>open()</code>, then the file name and content are read to inspect them.</p>
-<div id="fe5a0229" class="cell" data-execution_count="8">
+<div id="aabee2f8" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>folder_path <span class="op">=</span> <span class="st">"01-daten/glob leicht"</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>path_list <span class="op">=</span> glob.glob(pathname<span class="op">=</span><span class="st">'*'</span>, root_dir<span class="op">=</span>folder_path, recursive<span class="op">=</span><span class="va">False</span>)</span>
@@ -621,7 +621,7 @@ The files are named:
 </div>
 <p>Next, the data is stored in a dataset <code>states</code>.<br>
 The column names can be derived from the file names without the file extension.</p>
-<div id="d378e6c5" class="cell" data-execution_count="9">
+<div id="93871198" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># prepare column names</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, name <span class="kw">in</span> <span class="bu">enumerate</span>(names_of_files):</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    names_of_files[i] <span class="op">=</span> name[:<span class="op">-</span><span class="dv">4</span>]  <span class="co"># remove file extension</span></span>
@@ -703,7 +703,7 @@ Length: 4, dtype: str
 </div>
 </div>
 <p>Next, the number of states and the total area per region can be determined.</p>
-<div id="8f5fbcbe" class="cell" data-execution_count="10">
+<div id="6b7651ad" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The number of states per region is:</span><span class="ch">\n</span><span class="sc">{</span>states<span class="sc">.</span>groupby(<span class="st">'state region'</span>)[<span class="st">'state name'</span>]<span class="sc">.</span><span class="bu">apply</span>(<span class="bu">len</span>)<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The total area of each region is:</span><span class="ch">\n</span><span class="sc">{</span>states<span class="sc">.</span>groupby(<span class="st">'state region'</span>)[<span class="st">'state area'</span>]<span class="sc">.</span><span class="bu">apply</span>(<span class="bu">sum</span>)<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -753,7 +753,7 @@ Tip&nbsp;7.4: Sample solution: Accident Atlas
 <p>The survey year is a variable in the dataset.<br>
 However, we show how it can be extracted from the file name.</p>
 <p>First, the folder contents and then the file paths are read.</p>
-<div id="96894922" class="cell" data-execution_count="11">
+<div id="0d5b8d89" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read folder contents</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>folder_path <span class="op">=</span> <span class="st">'01-daten/glob schwer'</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>path_list <span class="op">=</span> glob.glob(pathname<span class="op">=</span><span class="st">'**'</span>, root_dir<span class="op">=</span>folder_path, recursive<span class="op">=</span><span class="va">True</span>)</span>
@@ -785,7 +785,7 @@ An algorithmic solution is implemented in the <code>Find column names</code> tab
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Extract years and column names</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">DataFrame of column names</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Find column names</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div id="51cb4e41" class="cell" data-execution_count="12">
+<div id="4b431a79" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extract years</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -818,7 +818,7 @@ An algorithmic solution is implemented in the <code>Find column names</code> tab
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>By printing this DataFrame, inconsistent column names can be visually identified.</p>
-<div id="d3f0f891" class="cell" data-execution_count="13">
+<div id="21b6f036" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"A DataFrame of the column names:</span><span class="ch">\n</span><span class="sc">{</span>df_of_columns<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>A DataFrame of the column names:
@@ -854,7 +854,7 @@ An algorithmic solution is implemented in the <code>Find column names</code> tab
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <p>The mismatched column names can also be reconciled algorithmically.</p>
-<div id="bbe14ee2" class="cell" data-execution_count="14">
+<div id="2a146039" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># algorithmically compare column names</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>unequal_column_names <span class="op">=</span> pd.Series(dtype<span class="op">=</span><span class="st">'object'</span>)</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -941,7 +941,7 @@ The following column names need to be standardized:
 The column <code>'PLST'</code> was only recorded in 2023 and can be omitted (see Accident Atlas metadata).<br>
 The argument <code>errors='ignore'</code> is passed to <code>pd.DataFrame.drop()</code> to prevent errors if the column is missing in a dataset.</p>
 <p>The column <code>'UIDENTSTLAE'</code> contains very large integers, so it is read in as a string.</p>
-<div id="975fbf99" class="cell" data-execution_count="15">
+<div id="1d1dfc0b" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">## read files</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>accident_atlas <span class="op">=</span> pd.DataFrame()</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1169,7 +1169,7 @@ None
 <li><p>reset the index (important: do this second),</p></li>
 <li><p>recreate the <code>'OBJECTID'</code> column to remove duplicates generated during import.</p></li>
 </ul>
-<div id="14d8c0bd" class="cell" data-execution_count="16">
+<div id="1d7d61d1" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sort dataset by year</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>accident_atlas.sort_values(by<span class="op">=</span><span class="st">'UJAHR'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>

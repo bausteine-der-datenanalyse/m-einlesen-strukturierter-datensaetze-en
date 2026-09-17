@@ -271,7 +271,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="11c14f3e" class="cell" data-execution_count="1">
+<div id="a4a178eb" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Preparation: reload modules from the previous chapter</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -373,7 +373,7 @@ Example&nbsp;9.1: Incompatible HDF5 File
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="b8ece5ed" class="cell" data-execution_count="2">
+<div id="1b10f835" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open file</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">"01-daten/ILATM1B_20191120_041200.ATM6AT6.h5"</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>hdf <span class="op">=</span> pd.HDFStore(file_path, mode<span class="op">=</span><span class="st">'r'</span>)</span>
@@ -429,7 +429,7 @@ This input results in the error message:
 </div>
 </div>
 <p>To demonstrate the functions, an HDF5 file is created. For this, an HDFStore object is opened in <code>append</code> mode, and a DataFrame is stored using the method <code>hdf.put(key, value, format)</code>.</p>
-<div id="d0f7f349" class="cell" data-execution_count="3">
+<div id="67e22060" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create HDF5 file</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'Column1'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], <span class="st">'Column2'</span>: [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]})</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>hdf <span class="op">=</span> pd.HDFStore(<span class="st">"01-daten/hdf_file_demo.h5"</span>, mode<span class="op">=</span><span class="st">'a'</span>)</span>
@@ -504,7 +504,7 @@ File path: 01-daten/hdf_file_demo.h5
 </div>
 <p>&nbsp;</p>
 <p>Group names can be retrieved using the method <code>file_object.keys()</code>.</p>
-<div id="b0e2d4c2" class="cell" data-execution_count="4">
+<div id="f7312358" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> h5py</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">"01-daten/ILATM1B_20191120_041200.ATM6AT6.h5"</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>hdf <span class="op">=</span> h5py.File(file_path, mode<span class="op">=</span><span class="st">'r'</span>)</span>
@@ -518,7 +518,7 @@ File path: 01-daten/hdf_file_demo.h5
 </div>
 </div>
 <p>Using the keys, the function <code>isinstance(item, type)</code> can be used to check whether an element is a group <code>h5py.Group</code> or a dataset <code>h5py.Dataset</code>. Datasets, like NumPy arrays, have the attributes <code>dtype</code>, <code>shape</code>, <code>size</code>, <code>ndim</code> (and <code>nbytes</code>).</p>
-<div id="dc94fb77" class="cell" data-execution_count="5">
+<div id="7b930b20" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> <span class="bu">list</span>(hdf.keys()):</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  obj <span class="op">=</span> hdf[key]</span>
@@ -556,7 +556,7 @@ Key:    instrument_parameters is a &lt;class 'h5py._hl.group.Group'&gt;
 </div>
 <p>The objects <code>elevation</code>, <code>latitude</code>, and <code>longitude</code> are datasets. The objects <code>ancillary_data</code> and <code>instrument_parameters</code> are groups. Access within groups works like entering a file path: <code>file_object['Group/key']</code>.</p>
 <p>To work with datasets, a copy must be created, for example by slicing.</p>
-<div id="025c499c" class="cell" data-execution_count="6">
+<div id="bdb9b9c5" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(hdf[<span class="st">'elevation'</span>] <span class="op">-</span> <span class="dv">1000</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">TypeError</span> <span class="im">as</span> error:</span>
@@ -582,7 +582,7 @@ Also with selected index ranges:
 </div>
 </div>
 <p>Finally, the file object is closed.</p>
-<div id="330037ea" class="cell" data-execution_count="7">
+<div id="fb27f1d5" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>hdf.close()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -602,7 +602,7 @@ Tip&nbsp;9.1: Example Solution: Calculating Absolute Time
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="3a0c65bf" class="cell" data-execution_count="8">
+<div id="0b6736b6" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open HDF file</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">"01-daten/ILATM1B_20191120_041200.ATM6AT6.h5"</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>hdf <span class="op">=</span> h5py.File(file_path, mode<span class="op">=</span><span class="st">'r'</span>)</span>
@@ -633,7 +633,7 @@ abs_time[-5:]:
 <section id="writing-hdf5-files" class="level4">
 <h4 class="anchored" data-anchor-id="writing-hdf5-files">Writing HDF5 Files</h4>
 <p>To write objects to an HDF5 file, it must be opened in write mode.</p>
-<div id="3818fc57" class="cell" data-execution_count="9">
+<div id="55a183a8" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>hdf_new <span class="op">=</span> h5py.File(<span class="st">'01-daten/hdf_neu.h5'</span>, mode<span class="op">=</span><span class="st">'w'</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>hdf_new[<span class="st">'abs_time'</span>] <span class="op">=</span> abs_time</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>hdf_new.close()</span>
@@ -722,7 +722,7 @@ abs_time[-5:]:
 </table>
 <p>&nbsp;</p>
 <p>netCDF files can have different versions (NETCDF3_CLASSIC, NETCDF3_64BIT_OFFSET, NETCDF3_64BIT_DATA, NETCDF4_CLASSIC, NETCDF4). The version can be retrieved via the attribute <code>cdf.data_model</code>.</p>
-<div id="d04265c3" class="cell" data-execution_count="10">
+<div id="f1ff3694" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> netCDF4 <span class="im">as</span> nc</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">"01-daten/LISOTD_HRFC_V2.3.2015.nc"</span></span>
@@ -735,7 +735,7 @@ abs_time[-5:]:
 </div>
 <p>The essential information can be displayed using the print function <code>print(cdf)</code>. However, the output can be confusing for more complex files.</p>
 <p>The groups of the file can be displayed using the attribute <code>print(cdf.groups)</code>.</p>
-<div id="38f1a76e" class="cell" data-execution_count="11">
+<div id="afde7005" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cdf.groups)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{}</code></pre>
@@ -743,7 +743,7 @@ abs_time[-5:]:
 </div>
 <p>The output is a dictionary, which in this case is empty. The file therefore has no subdirectories (groups).</p>
 <p>The variables (datasets) can be displayed using the attribute <code>print(cdf.variables)</code>, which is also a dictionary. The complete output can be seen in the following example.</p>
-<div id="3ef01e8f" class="cell" data-execution_count="12">
+<div id="d3942866" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>variables <span class="op">=</span> cdf.variables</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key, value <span class="kw">in</span> variables.items():</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(key)</span>
@@ -774,7 +774,7 @@ Example&nbsp;9.2: Complete output of cdf.variables
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="ea36bdc0" class="cell" data-execution_count="13">
+<div id="e5317406" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>variables <span class="op">=</span> cdf.variables</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key, value <span class="kw">in</span> variables.items():</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(key)</span>
@@ -986,7 +986,7 @@ filling on, default _FillValue of 9.969209968386869e+36 used
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Dimensions</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">global attributes</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">attributes of a variable</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div id="45f2286d" class="cell" data-execution_count="14">
+<div id="0bdd4668" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>dimensions <span class="op">=</span> cdf.dimensions</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key, value <span class="kw">in</span> dimensions.items():</span>
@@ -1015,7 +1015,7 @@ Longitude
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div id="05d5e6b4" class="cell" data-execution_count="15">
+<div id="2d96c516" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cdf.ncattrs(), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>global_attributes <span class="op">=</span> cdf.__dict__</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1063,7 +1063,7 @@ NCO
 </div>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<div id="58cb3b09" class="cell" data-execution_count="16">
+<div id="f662e8e1" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>variable <span class="op">=</span> cdf[<span class="st">'HRFC_OTD_FR'</span>]</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternatively:</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># variable = cdf.variables['HRFC_OTD_FR']</span></span>
@@ -1159,7 +1159,7 @@ A two-dimensional data structure can be created like this:<br>
 <p>In the following code, the object <code>abs_time</code> from the previous section is saved in a netCDF4 file.<br>
 The attributes <code>variablename.description</code>, <code>variablename.source</code>, and <code>variablename.units</code> store metadata about the variable (here: milliseconds).<br>
 The statement for creating the variable is assigned to an object <code>variablename</code>.</p>
-<div id="bc8c68ad" class="cell" data-execution_count="17">
+<div id="097f94ed" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open new dataset in write mode</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>cdf_new <span class="op">=</span> nc.Dataset(<span class="st">'01-daten/cdf_neu.nc'</span>, mode <span class="op">=</span> <span class="st">'w'</span>)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1213,7 +1213,7 @@ filling on, default _FillValue of 9.969209968386869e+36 used
 <section id="operations-with-variables" class="level4">
 <h4 class="anchored" data-anchor-id="operations-with-variables">Operations with variables</h4>
 <p>As with HDF5 files, operations with variables cannot be performed directly.</p>
-<div id="9561279b" class="cell" data-execution_count="18">
+<div id="86d50a0d" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(cdf[<span class="st">'HRFC_OTD_FR'</span>] <span class="op">-</span> <span class="dv">1</span>)</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">TypeError</span> <span class="im">as</span> error:</span>
@@ -1253,7 +1253,7 @@ Also with selected index ranges:
 </div>
 </div>
 <p>At the end, the netCDF4 file is closed.</p>
-<div id="a28e6bdc" class="cell" data-execution_count="19">
+<div id="7662cba9" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>cdf.close()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>

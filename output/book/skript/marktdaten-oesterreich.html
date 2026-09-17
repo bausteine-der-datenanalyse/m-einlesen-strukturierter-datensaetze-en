@@ -259,7 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="758e8411" class="cell" data-execution_count="1">
+<div id="3abf2e34" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Preparation: reload modules from the previous chapter</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -344,7 +344,7 @@ print(end_times[8070:8078], "\n")</code></pre>
 </div>
 <p><strong>Read File and String Manipulation</strong></p>
 <p>First, the file is read in. Cells that cannot be converted to datetime can be displayed using Python.</p>
-<div id="fe10be77" class="cell" data-execution_count="2">
+<div id="809d8efe" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read file</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>generation_austria <span class="op">=</span> pd.read_csv(filepath_or_buffer <span class="op">=</span> <span class="st">"01-daten/AGPT_2022-12-31T23_00_00Z_2023-12-31T23_00_00Z_15M_de_2024-06-10T09_32_38Z.csv"</span>,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                                 sep <span class="op">=</span> <span class="st">";"</span>, decimal <span class="op">=</span> <span class="st">","</span>, thousands <span class="op">=</span> <span class="st">"."</span>)</span>
@@ -401,7 +401,7 @@ The cells have the row indices:  [28900, 28901, 28902, 28903, 28904, 28905, 2890
 </div>
 </div>
 <p>To correctly read the date columns, the strings “2A” and “2B” are replaced with “02” using the <code>str.replace()</code> method. This creates a duplicate in the dataset.</p>
-<div id="4ebbcf5d" class="cell" data-execution_count="3">
+<div id="625dc397" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># String replace &amp; convert to datetime</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">## Column 'Zeit von [CET/CEST]'</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>generation_austria[<span class="st">'Zeit von [CET/CEST]'</span>] <span class="op">=</span> generation_austria[<span class="st">'Zeit von [CET/CEST]'</span>].<span class="bu">str</span>.replace(pat <span class="op">=</span> <span class="st">'2A'</span>, repl <span class="op">=</span> <span class="st">'02'</span>)</span>
@@ -449,7 +449,7 @@ The position of the duplicated hour is determined using the method <code>pd.Seri
 This vector is then used for slicing and output of the index position.<br>
 By subtracting 4, the index of the first hour is displayed (the dataset is based on quarter-hour intervals).</p>
 <p><em>duplicated hour</em></p>
-<div id="b0955798" class="cell" data-execution_count="4">
+<div id="aa4060bf" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create new object</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>austria_dates <span class="op">=</span> generation_austria[[<span class="st">'Zeit von [CET/CEST]'</span>, <span class="st">'Zeit bis [CET/CEST]'</span>]].copy()</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -531,7 +531,7 @@ This condition can be checked in four steps:</p>
 <code>last_sunday = sundays[-23*4:]</code></p></li>
 <li><p>missing hour: <code>np.argwhere(np.invert(pd.Series(range(0,24)).isin(last_sunday.dt.hour)))</code></p></li>
 </ul>
-<div id="781a6d06" class="cell" data-execution_count="5">
+<div id="d35ceb61" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># determine index position of the missing hour</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">## Time from</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">### Month of March</span></span>
@@ -702,7 +702,7 @@ The time shift in the column 'Time to' starts at index position: 8071</code></pr
 </ul>
 <p>For slicing, the method <code>pd.Series.iloc[]</code> is used, which indexes exclusively — that is, the end positions must be increased by 1.<br>
 By subtracting <code>pd.Timedelta(1, unit='h')</code>, the time shift is removed from the dataset.</p>
-<div id="97ff7e52" class="cell" data-execution_count="6">
+<div id="5f4c5375" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># correct time shift</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">## Time from</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>austria_dates[<span class="st">'Zeit von [CET/CEST]'</span>].iloc[start_shift_from : end_shift_from <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> (</span>
@@ -762,14 +762,14 @@ Name: Zeit bis [CET/CEST], Length: 20834, dtype: datetime64[us]
 </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_3849/2335431116.py:3: ChainedAssignmentError: A value is being set on a copy of a DataFrame or Series through chained assignment.
+<pre><code>/tmp/ipykernel_3890/2335431116.py:3: ChainedAssignmentError: A value is being set on a copy of a DataFrame or Series through chained assignment.
 Such chained assignment never works to update the original DataFrame or Series, because the intermediate object on which we are setting values always behaves as a copy (due to Copy-on-Write).
 
 Try using '.loc[row_indexer, col_indexer] = value' instead, to perform the assignment in a single step.
 
 See the documentation for a more detailed explanation: https://pandas.pydata.org/pandas-docs/stable/user_guide/copy_on_write.html#chained-assignment
   austria_dates['Zeit von [CET/CEST]'].iloc[start_shift_from : end_shift_from + 1] = (
-/tmp/ipykernel_3849/2335431116.py:12: ChainedAssignmentError: A value is being set on a copy of a DataFrame or Series through chained assignment.
+/tmp/ipykernel_3890/2335431116.py:12: ChainedAssignmentError: A value is being set on a copy of a DataFrame or Series through chained assignment.
 Such chained assignment never works to update the original DataFrame or Series, because the intermediate object on which we are setting values always behaves as a copy (due to Copy-on-Write).
 
 Try using '.loc[row_indexer, col_indexer] = value' instead, to perform the assignment in a single step.
@@ -857,7 +857,7 @@ Tip&nbsp;6.2: Complete sample solution
 The argument <code>sheet_name</code> is used to select the worksheet <strong>Data</strong>.<br>
 With the method <code>pd.DataFrame.head(n = 10)</code>, you can identify the row index where the header ends and the data begins. In this case, the header ends at row 8, which corresponds to index <strong>7</strong> in Python.</p>
 <p><strong>Read header</strong></p>
-<div id="f1f52fb1" class="cell" data-execution_count="7">
+<div id="690f1ccd" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">'01-daten/shiller_data.xls'</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>shiller <span class="op">=</span> pd.read_excel(io<span class="op">=</span>file_path, sheet_name<span class="op">=</span><span class="st">'Data'</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -947,7 +947,7 @@ Therefore, each column is processed individually in a loop.<br>
 Additionally, this method only works with the data type <code>'string'</code>, which is ensured using the method <code>astype('string')</code>.</p>
 <p>Afterward, text elements that do not belong to the column labels are removed using <code>str.replace()</code>.<br>
 Here, the argument <code>regex=True</code> proves useful.</p>
-<div id="c662c82e" class="cell" data-execution_count="8">
+<div id="39bfd0a3" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create column labels using a loop</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>shiller_column_labels <span class="op">=</span> pd.Series()</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1018,7 +1018,7 @@ dtype: str</code></pre>
 <h4 class="anchored" data-anchor-id="using-the-numpy-data-type-str">Using the NumPy data type <code>'str'</code></h4>
 <p>Specifying <code>dtype='str'</code> results in the use of the NumPy string data type (<code>dtype='str'</code>), which is <strong>mutable</strong>.<br>
 Only with this data type does string concatenation using the method <code>pd.DataFrame.sum()</code> work properly.</p>
-<div id="1993b6f2" class="cell" data-execution_count="9">
+<div id="ae55882f" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The NumPy string data type is mutable</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>my_array <span class="op">=</span> np.array([[<span class="st">'1'</span>, <span class="st">'2'</span>], [<span class="st">'3'</span>, <span class="st">'4'</span>]])</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>my_array[<span class="dv">0</span>] <span class="op">=</span> [<span class="st">'a'</span>, <span class="st">'b'</span>]</span>
@@ -1081,7 +1081,7 @@ print(shiller_head.apply(lambda x: ''.join(x.astype(str))))</code></pre>
 <p><strong>Read in data</strong></p>
 <p>When reading the data, the header is checked, and the end of the dataset is examined using the <code>.tail()</code> method to identify rows containing additional metadata.<br>
 These metadata rows are then skipped using the argument <code>skipfooter=1</code>.</p>
-<div id="a87c72de" class="cell" data-execution_count="10">
+<div id="28c30fce" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">'01-daten/shiller_data.xls'</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># read data</span></span>
@@ -1265,7 +1265,7 @@ These metadata rows are then skipped using the argument <code>skipfooter=1</code
 </div>
 <p>&nbsp;</p>
 <p>After removing the metadata, the detected data types are checked using the <code>.info()</code> method.</p>
-<div id="1f0c5f82" class="cell" data-execution_count="11">
+<div id="bdcbe454" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>shiller_data <span class="op">=</span> pd.read_excel(io<span class="op">=</span>file_path, sheet_name<span class="op">=</span><span class="st">'Data'</span>, skiprows<span class="op">=</span><span class="dv">8</span>, header<span class="op">=</span><span class="va">None</span>, skipfooter<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shiller_data.head(n<span class="op">=</span><span class="dv">2</span>), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shiller_data.tail(n<span class="op">=</span><span class="dv">2</span>))</span>
@@ -1336,7 +1336,7 @@ memory usage: 316.4 KB</code></pre>
 All remaining columns are recognized as floating-point numbers.<br>
 This means that the percentage signs in columns with indices 16 and 19–21 (Q, T:V) were handled by division by 100.<br>
 With the exception of the <code>Date</code> column, all data types are now correctly recognized.</p>
-<div id="5c21b7bb" class="cell" data-execution_count="12">
+<div id="6fc50172" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove empty columns</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>shiller_column_labels <span class="op">=</span> shiller_column_labels.drop(labels<span class="op">=</span>[<span class="dv">13</span>, <span class="dv">15</span>])</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>shiller_data <span class="op">=</span> shiller_data.drop(labels<span class="op">=</span>[<span class="dv">13</span>, <span class="dv">15</span>], axis<span class="op">=</span><span class="st">'columns'</span>)</span>
@@ -1381,7 +1381,7 @@ An exception is the month of October, which is encoded as <code>'YYYY.M'</code>.
 This difference is not visible in the <code>print()</code> output because the display precision is set to 2 decimal places using <code>pd.set_option("display.precision", 2)</code>.<br>
 The varying string lengths can be visualized with<br>
 <code>shiller_data.loc[0:12, 'Date'].astype('str').str.len()</code>.</p>
-<div id="e5e6539f" class="cell" data-execution_count="13">
+<div id="546ba8fa" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shiller_data.loc[<span class="dv">0</span>:<span class="dv">12</span>, <span class="st">'Date'</span>], <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
@@ -1434,7 +1434,7 @@ Name: Date, dtype: int64
 Using a mask, strings with length 6 are identified.<br>
 A <code>'0'</code> is appended to these 6-character strings to standardize the date format.<br>
 Finally, the column is converted to datetime using <code>pd.to_datetime(format="%Y.%m")</code>.</p>
-<div id="177aa5dd" class="cell" data-execution_count="14">
+<div id="c37832df" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set data type of 'Date' column to string</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># leads to an errormessage:</span></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>shiller_data[<span class="st">'Date'</span>] <span class="op">=</span> shiller_data[<span class="st">'Date'</span>].astype(<span class="st">'str'</span>)</span>

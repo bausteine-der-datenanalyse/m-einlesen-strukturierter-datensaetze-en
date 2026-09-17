@@ -262,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="73d09662" class="cell" data-execution_count="1">
+<div id="1ac3ec4b" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Preparation: reload modules from the previous chapter</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy.ma <span class="im">as</span> ma</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -308,7 +308,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <p>However, reading it with the Pandas function <code>pd.read_csv(filepath_or_buffer = filepath)</code> does not work as expected.</p>
-<div id="8d2221f7" class="cell" data-execution_count="2">
+<div id="65b7f3fe" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>filepath <span class="op">=</span> <span class="st">'01-daten/quiz-aufgabe1.csv'</span></span>
@@ -334,7 +334,7 @@ None</code></pre>
 <li><p>A folder contains the following files: [‘Datei0.jpg’, ‘Datei1.csv’, ‘Datei2.txt’, ‘Datei3.png’]. You want to read all files with the extensions <code>.csv</code> and <code>.txt</code> using the <code>glob</code> module. How could the file path in the <code>pathname</code> argument be described to read all files <code>glob.glob(pathname = folderpath + '...')</code>?</p></li>
 <li><p>Remove mask: The masked array <code>m_data</code> should be unmasked. However, the command <code>m_data.mask = ma.nomask</code> does not work. What could be the reason?</p></li>
 </ol>
-<div id="fb534de2" class="cell" data-execution_count="4">
+<div id="639602f6" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(m_data, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>m_data.mask <span class="op">=</span> ma.nomask</span>
@@ -368,7 +368,7 @@ None</code></pre>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Task 1: pd.read_csv()</p>
-<div id="330db7bd" class="cell" data-execution_count="5">
+<div id="2de06e66" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>filepath <span class="op">=</span> <span class="st">'01-daten/quiz-aufgabe1.csv'</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>task1 <span class="op">=</span> pd.read_csv(filepath_or_buffer <span class="op">=</span> filepath, sep <span class="op">=</span> <span class="st">';'</span>, parse_dates <span class="op">=</span> [<span class="st">'Geburtsdatum'</span>], dtype <span class="op">=</span> {<span class="st">'Name'</span>: <span class="st">'string'</span>})</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(task1.info())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -388,7 +388,7 @@ None</code></pre>
 </div>
 </div>
 <p>Task 2: Mark observations as invalid</p>
-<div id="069dc194" class="cell" data-execution_count="6">
+<div id="e95fcd75" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>condition <span class="op">=</span> task1[<span class="st">'Geburtsdatum'</span>].dt.year <span class="op">&lt;</span> <span class="dv">1980</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(condition, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -431,7 +431,7 @@ Pandas data type Int64 supports missing values for integers
 </div>
 </div>
 <p>Task 3: Sort datetime in ascending order</p>
-<div id="05559c75" class="cell" data-execution_count="7">
+<div id="f3ef68c6" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>task3 <span class="op">=</span> task2.copy()</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(task3[<span class="st">'Geburtsdatum'</span>].sort_values(ascending <span class="op">=</span> <span class="va">False</span>), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -455,7 +455,7 @@ Name: Geburtsdatum, dtype: datetime64[us]
 </div>
 <p>Task 4: Which date is larger and why?</p>
 <p>Python counts time from the so-called epoch <code>pd.to_datetime(0)</code>. Younger people were born further away from the epoch.</p>
-<div id="2671234a" class="cell" data-execution_count="8">
+<div id="399d854e" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>task4 <span class="op">=</span> pd.DataFrame({<span class="st">'Geburtsdatum'</span>: task3[<span class="st">'Geburtsdatum'</span>].sort_values(ascending <span class="op">=</span> <span class="va">False</span>)})</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>task4[<span class="st">'timedelta_from_epoch'</span>] <span class="op">=</span> task4[<span class="st">'Geburtsdatum'</span>] <span class="op">-</span> pd.to_datetime(<span class="dv">0</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -474,7 +474,7 @@ Name: Geburtsdatum, dtype: datetime64[us]
 <code>glob.glob(pathname = 'folderpath' + '*[1-2].*')</code></p>
 <p>Task 6: masked Array</p>
 <p>The masked array has a hard mask.</p>
-<div id="822cef0e" class="cell" data-execution_count="9">
+<div id="0471c4c0" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>m_data.soften_mask()</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>m_data.mask <span class="op">=</span> ma.nomask</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(m_data, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

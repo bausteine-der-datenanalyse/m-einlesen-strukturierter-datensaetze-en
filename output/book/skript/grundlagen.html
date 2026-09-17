@@ -345,7 +345,7 @@ Definition&nbsp;2.1: Dataset
 </div>
 <p>&nbsp;</p>
 <p>Examples of one-dimensional datasets include a shopping list or the raw list of dice roll results. Using the index, you can, for example, output the dice result at index position 2.</p>
-<div id="c5a18694" class="cell" data-execution_count="1">
+<div id="25e4cab8" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="op">*</span>( eyes <span class="op">:=</span> [<span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>] ) )</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The dice result at index position 2 is: </span><span class="sc">{</span>eyes[<span class="dv">2</span>]<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -399,7 +399,7 @@ Tip&nbsp;2.2: Example Solution for python.txt
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="c50f2991" class="cell" data-execution_count="2">
+<div id="6eae8928" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>filepath <span class="op">=</span> <span class="st">"01-daten/"</span> <span class="op">+</span> <span class="st">"python.txt"</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>file_object <span class="op">=</span> <span class="bu">open</span>(filepath, mode <span class="op">=</span> <span class="st">'r'</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -430,7 +430,7 @@ Auszug aus https://de.wikipedia.org/wiki/Python_(Programmiersprache), abgerufen 
 </div>
 </div>
 <p>Select UTF-8 encoding.</p>
-<div id="4dc2e6b7" class="cell" data-execution_count="3">
+<div id="c2673cd9" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Choose UTF-8 encoding to support European special characters</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>file_object <span class="op">=</span> <span class="bu">open</span>(filepath, mode <span class="op">=</span> <span class="st">'r'</span>, encoding <span class="op">=</span> <span class="st">'utf-8'</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -474,7 +474,7 @@ Auszug aus https://de.wikipedia.org/wiki/Python_(Programmiersprache), abgerufen 
 </div>
 <p>&nbsp;</p>
 <p>Typically, in two-dimensional datasets, each column represents a <strong>variable</strong> and each row represents an <strong>observation</strong>. Variables store all values of a feature, for example, dice results. Observations store all measured values for one observation unit, e.g., a person. <span class="citation" data-cites="Wickham-2014">(<a href="#ref-Wickham-2014" role="doc-biblioref">Wickham 2014, 3</a>)</span></p>
-<div id="9a55f6bc" class="cell" data-execution_count="4">
+<div id="9ff2626a" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>measurement1 <span class="op">=</span> pd.DataFrame({</span>
@@ -536,14 +536,14 @@ Auszug aus https://de.wikipedia.org/wiki/Python_(Programmiersprache), abgerufen 
 </div>
 <p>&nbsp;</p>
 <p>By specifying the indices along axis 0 (rows) and axis 1 (columns), you can output the sum of dice eyes for a person.</p>
-<div id="3ced738a" class="cell" data-execution_count="5">
+<div id="69fdd1bb" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Jean rolled </span><span class="sc">{</span>measurement1<span class="sc">.</span>iloc[<span class="dv">2</span>, <span class="dv">3</span>]<span class="sc">}</span><span class="ss"> eyes"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Jean rolled 8 eyes</code></pre>
 </div>
 </div>
 <p>It is also possible to first select a column and then access the value at a specific index, as with a one-dimensional dataset. This is called <strong>chained indexing</strong>.</p>
-<div id="28d1a52c" class="cell" data-execution_count="6">
+<div id="a0294548" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Jean rolled </span><span class="sc">{</span>measurement1[<span class="st">'Sum of Eyes'</span>][<span class="dv">2</span>]<span class="sc">}</span><span class="ss"> eyes"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Jean rolled 8 eyes</code></pre>
@@ -581,7 +581,7 @@ Note&nbsp;2.1: Chained Indexing
 <h3 class="anchored" data-anchor-id="long-and-wide-format">Long and Wide Format</h3>
 <p>Two-dimensional datasets are usually represented as a matrix of rows and columns. Values for the variables organized in columns are assigned to the observations entered row-wise. This way of representing data is called the <strong>wide format</strong>: each additional measured variable makes the dataset wider.</p>
 <p>Another way to organize and think about data is the <strong>long format</strong>. Some programs and packages require or at least benefit from data in long format, for example when creating plots. Let’s first look at the dataset <code>measurement1</code> again in wide format. What are the observation units? Which variables were recorded?</p>
-<div id="f28c7cf9" class="cell" data-execution_count="7">
+<div id="b7a33489" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
@@ -633,7 +633,7 @@ Note&nbsp;2.1: Chained Indexing
 </div>
 <p>&nbsp;</p>
 <p>You might assume that the observation units are Hans, Elke, Jean, and Maya, and that the variables are Birthday, Dice Color, and Sum of Eyes. However, it is also possible that the observation unit is Person, encoded as 0, 1, 2, and 3 (the row index of the dataset), and that the column Name is one of the recorded variables. Similarly, there could be only two variables, Dice Color and Sum of Eyes, while the columns Name and Birthday encode the observed individuals. Imagine there is a second person named Hans. In that case, the dice results for individuals named Hans can only be correctly assigned using the Birthday, e.g., 26.02. or 11.11.</p>
-<div id="5804f7c6" class="cell" data-execution_count="8">
+<div id="184eb5f4" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>measurement1 <span class="op">=</span> pd.DataFrame({</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Name'</span>: [<span class="st">'Hans'</span>, <span class="st">'Elke'</span>, <span class="st">'Jean'</span>, <span class="st">'Maya'</span>, <span class="st">'Hans'</span>],</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Birthday'</span>: [<span class="st">'26.02.'</span>, <span class="st">'14.03.'</span>, <span class="st">'30.12.'</span>, <span class="st">'07.09.'</span>, <span class="st">'11.11.'</span>],</span>
@@ -700,7 +700,7 @@ Note&nbsp;2.1: Chained Indexing
 </div>
 <p>&nbsp;</p>
 <p>The long format makes these considerations explicit by distinguishing between <strong>identification variables</strong> (id variables) and <strong>measured variables</strong> (measure variables or value vars). Transforming a dataset from wide format to long format is called <strong>melting</strong>. The Pandas module provides the function <code>pd.melt(frame, id_vars=None)</code>. It expects a DataFrame, and the optional argument <code>id_vars</code> specifies which columns are the identification variables.</p>
-<div id="c78b95de" class="cell" data-execution_count="9">
+<div id="8c069b69" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>measurement1_long <span class="op">=</span> pd.melt(measurement1, id_vars <span class="op">=</span> [<span class="st">'Name'</span>, <span class="st">'Birthday'</span>])</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>measurement1_long</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -798,7 +798,7 @@ Note&nbsp;2.1: Chained Indexing
 <p>&nbsp;</p>
 <p>In long format, the measured variables are listed in the column <code>variable</code>, and their values are stored in the column <code>value</code>. Each additional measured variable makes the dataset longer.</p>
 <p>If you think through the distinction between identification and measured variables, the variable name itself can be considered an identification variable for the value in the <code>value</code> column. A dataset can be understood as a structure that has exactly one measured variable, <code>value</code>, and a number of identification variables. This can be represented in long format as follows:</p>
-<div id="b9d61780" class="cell" data-execution_count="10">
+<div id="305322a3" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>measurement1_all_id <span class="op">=</span> pd.melt(measurement1, id_vars <span class="op">=</span> [<span class="st">'Name'</span>, <span class="st">'Birthday'</span>, <span class="st">'Dice Color'</span>])</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>measurement1_all_id</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -806,7 +806,7 @@ Note&nbsp;2.1: Chained Indexing
 <p>In this representation, for example, the first value <code>12</code> is identified by <code>Name = Hans</code>, <code>Birthday = 26.02.</code>, <code>Dice Color = pink</code>, and <code>variable = Sum of Eyes</code>.</p>
 <div class="quarto-layout-panel" data-layout="[70, 30]">
 <div class="quarto-layout-row">
-<div id="fde82b71" class="cell quarto-layout-cell" data-execution_count="11" style="flex-basis: 70.0%;justify-content: center;">
+<div id="b25ef0a5" class="cell quarto-layout-cell" data-execution_count="11" style="flex-basis: 70.0%;justify-content: center;">
 <div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 
@@ -900,7 +900,7 @@ Tip&nbsp;2.3: Answer
 </div>
 </div>
 <p>The reverse case is also possible: if no <code>id_vars</code> are specified during melting, all columns are treated as measured variables.</p>
-<div id="a1ef59a8" class="cell" data-execution_count="12">
+<div id="a220dd9b" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>measurement1_no_id <span class="op">=</span> pd.melt(measurement1)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>measurement1_no_id</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1025,7 +1025,7 @@ Tip&nbsp;2.3: Answer
 </div>
 <p>&nbsp;</p>
 <p>The reverse operation of melting is called <strong>casting</strong> or <strong>pivoting</strong>. Here, a dataset in long format is converted back to wide format. The Pandas function <code>pd.pivot(data, columns, index)</code> takes a melted DataFrame and converts it using the unique values in <code>columns</code> (the column names of the wide-format DataFrame) and the unique values in <code>index</code> (the row index of the wide-format DataFrame). If no column is provided for <code>index</code>, the existing index of the melted DataFrame is used (which, with 20 rows, is of course too long). Since the object <code>measurement1_no_id</code> does not have a suitable index column, one must be created before casting. This can be done with the method <code>measurement1_no_id.groupby('variable').cumcount()</code>, which counts the occurrence of each value in the specified column starting at 0. (Directly replacing the index is not possible in this way, because the index passed to <code>pd.pivot(data, columns, index)</code> must not contain duplicates.)</p>
-<div id="91ff9017" class="cell" data-execution_count="13">
+<div id="db087481" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pd.pivot() requires an index or uses the existing index of the melted_df, which is too long</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Therefore, insert an additional column in measurement1_no_id</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">## simple: measurement1_no_id['new_index'] = list(range(0, 5)) * 4 </span></span>
@@ -1073,7 +1073,7 @@ new_index
 </div>
 </div>
 <p>The result still does not match the original wide-format dataset. To restore the original format, the columns must be reordered, and the index and its label must be reset.</p>
-<div id="5489f3e8" class="cell" data-execution_count="14">
+<div id="fac1f4bd" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorder columns and reset index</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>measurement1_cast <span class="op">=</span> measurement1_cast[[<span class="st">'Name'</span>, <span class="st">'Birthday'</span>, <span class="st">'Dice Color'</span>, <span class="st">'Sum of Eyes'</span>]]</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>measurement1_cast.reset_index(drop<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
@@ -1113,7 +1113,7 @@ Tip&nbsp;2.4: Identification and Measured Variables
 <h3 class="anchored" data-anchor-id="exercise-two-dimensional-datasets">Exercise: Two-Dimensional Datasets</h3>
 <p>Above, the object <code>measurement1_long</code> was created using the command <code>measurement1_long = pd.melt(measurement1, id_vars = ['Name', 'Birthday'])</code>.<br>
 <strong>Use the function</strong> <code>pd.DataFrame.pivot()</code> <strong>to transform the dataset <code>measurement1</code> back into wide format.</strong></p>
-<div id="3d5125ba" class="cell" data-execution_count="15">
+<div id="6bc8f43c" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 
@@ -1217,7 +1217,7 @@ Tip&nbsp;2.5: Example Solution: Two-Dimensional Datasets
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="2390e20c" class="cell" data-execution_count="16">
+<div id="656a27fc" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert new_index column</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>measurement1_long[<span class="st">'new_index'</span>] <span class="op">=</span> measurement1_long.groupby(<span class="st">'variable'</span>).cumcount()</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1322,7 +1322,7 @@ Tip&nbsp;2.5: Example Solution: Two-Dimensional Datasets
  [[Red, Green, Blue], [Red, Green, Blue], [Red, Green, Blue]]]</code></pre>
 <p>Image files can be read using the function <code>plt.imread()</code> from the <code>matplotlib.pyplot</code> module.</p>
 <div class="border">
-<div id="77a36f47" class="cell" data-execution_count="17">
+<div id="ea35834f" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>logo <span class="op">=</span> plt.imread(fname<span class="op">=</span><span class="st">'00-bilder/python-logo-and-wordmark-cc0-tm.png'</span>)</span>
@@ -1340,7 +1340,7 @@ Tip&nbsp;2.5: Example Solution: Two-Dimensional Datasets
 </div>
 <p>&nbsp;</p>
 <p>The structure of the dataset can be accessed using the <code>.shape</code> attribute.</p>
-<div id="48b505f5" class="cell" data-execution_count="18">
+<div id="31fded25" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(logo), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(logo.shape)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1351,7 +1351,7 @@ Tip&nbsp;2.5: Example Solution: Two-Dimensional Datasets
 </div>
 </div>
 <p>The data was read as a <code>NumPy.ndarray</code>. The logo has 144 rows, 486 columns, and is in the RGBA color space. A slice of the data looks like this:</p>
-<div id="8eaa4eac" class="cell" data-execution_count="19">
+<div id="7b8bb30c" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(logo[<span class="dv">50</span>:<span class="dv">52</span>, <span class="dv">50</span>:<span class="dv">52</span>, :])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[[0.21568628 0.44705883 0.63529414 1.        ]
@@ -1380,7 +1380,7 @@ Tip&nbsp;2.7: Example Solution: Three-Dimensional Datasets
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="11b43228" class="cell" data-execution_count="20">
+<div id="45fd8b53" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>channels <span class="op">=</span> [<span class="st">"Red Channel"</span>, <span class="st">"Green Channel"</span>, <span class="st">"Blue Channel"</span>]</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">6</span>))</span>
@@ -1417,7 +1417,7 @@ Tip&nbsp;2.6: Explanation: Image Background
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The image background has a value of 0 in all channels, including the alpha channel. This part of the image is therefore fully transparent and is filled in by the webpage background. As a result, the logo’s background appears white.</p>
-<div id="d4b43c9e" class="cell" data-execution_count="21">
+<div id="b1a2575b" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Alpha channel</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(logo[:, :, <span class="dv">3</span>], cmap<span class="op">=</span><span class="st">'Greys_r'</span>)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>plt.title(label<span class="op">=</span><span class="st">'Alpha Channel'</span>)</span>

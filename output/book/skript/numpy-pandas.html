@@ -291,7 +291,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 <p>Common abbreviations for both modules:</p>
-<div id="a1455591" class="cell" data-execution_count="1">
+<div id="9662cb21" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -561,7 +561,7 @@ Tip&nbsp;4.1: Working with NumPy and Pandas
 </table>
 <p>The data type of an array can be determined using the <code>np.dtype</code> attribute. The data type of an object can be changed using the method <code>np.array = np.array.astype()</code>.</p>
 <p>The following file is known to you from the w-NumPy learning module.</p>
-<div id="2c23a8bd" class="cell" data-execution_count="2">
+<div id="fb8fda52" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">'01-daten/TC01.csv'</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.loadtxt(file_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -578,7 +578,7 @@ Tip&nbsp;4.2: Example Solution: Data Type Conversion
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="c3bd9add" class="cell" data-execution_count="3">
+<div id="44b429d5" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the data type</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.dtype)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -625,7 +625,7 @@ Tip&nbsp;4.3: Example Solution: Guinea Pigs
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="52745c79" class="cell" data-execution_count="4">
+<div id="43a6419a" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">"01-daten/ToothGrowth.csv"</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>guinea_pigs <span class="op">=</span> pd.read_csv(filepath_or_buffer <span class="op">=</span> file_path, sep <span class="op">=</span> <span class="st">','</span>, header <span class="op">=</span> <span class="dv">0</span>, <span class="op">\</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  names <span class="op">=</span> [<span class="st">'ID'</span>, <span class="st">'len'</span>, <span class="st">'supp'</span>, <span class="st">'dose'</span>], dtype <span class="op">=</span> {<span class="st">'ID'</span>: <span class="st">'int'</span>, <span class="st">'len'</span>: <span class="st">'float'</span>, <span class="st">'dose'</span>: <span class="st">'float'</span>, <span class="st">'supp'</span>: <span class="st">'category'</span>})</span>
@@ -723,7 +723,7 @@ Tip&nbsp;4.3: Example Solution: Guinea Pigs
 </div>
 </div>
 </div>
-<div id="42507ff7" class="cell" data-execution_count="5">
+<div id="cb87aa30" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(guinea_pigs.dtypes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ID         int64
@@ -741,7 +741,7 @@ dtype: object</code></pre>
 <h4 class="anchored" data-anchor-id="useful-functions-for-descriptive-data-analysis">Useful Functions for Descriptive Data Analysis</h4>
 <p>Pandas provides several useful functions to describe the structure of a dataset.</p>
 <p>The <code>.columns</code> attribute returns the column labels as a list. It can also be used to set column names.</p>
-<div id="24afe8fd" class="cell" data-execution_count="6">
+<div id="12625f26" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(guinea_pigs.columns)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>guinea_pigs.columns <span class="op">=</span> [<span class="st">'ID'</span>, <span class="st">'Length'</span>, <span class="st">'Supplement'</span>, <span class="st">'Dose'</span>]</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(guinea_pigs.columns)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -751,7 +751,7 @@ Index(['ID', 'Length', 'Supplement', 'Dose'], dtype='str')</code></pre>
 </div>
 </div>
 <p>The method <code>pd.DataFrame.describe()</code> generates descriptive statistics for a DataFrame. By default, all numeric columns are included. Using the <code>include</code> argument, you can specify which columns to include. <code>include='all'</code> includes all columns, which is not always meaningful. Alternatively, you can pass a list of data types to include. The <code>exclude</code> argument works similarly to exclude certain data types from the output.</p>
-<div id="be3a5122" class="cell" data-execution_count="7">
+<div id="a58ce640" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(guinea_pigs.describe(), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(guinea_pigs.describe(include <span class="op">=</span> <span class="st">'all'</span>), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
@@ -794,7 +794,7 @@ max     33.90   2.00
 </div>
 </div>
 <p>The method <code>pd.DataFrame.count()</code> counts all non-missing values in each column, or with <code>pd.DataFrame.count(axis='columns')</code> in each row.</p>
-<div id="c9fe4ff1" class="cell" data-execution_count="8">
+<div id="247bc303" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>guinea_pigs.count(axis<span class="op">=</span><span class="st">'rows'</span>)  <span class="co"># the default value of axis is 'rows'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>ID            60
@@ -805,7 +805,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>The method <code>pd.DataFrame.info()</code> generates a summary of the dataset.</p>
-<div id="10bc3866" class="cell" data-execution_count="9">
+<div id="e19d694e" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>guinea_pigs.info()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.DataFrame'&gt;
@@ -822,7 +822,7 @@ memory usage: 1.7 KB</code></pre>
 </div>
 </div>
 <p>The method <code>pd.unique()</code> lists all unique values.</p>
-<div id="7e59bc25" class="cell" data-execution_count="10">
+<div id="4dccdea2" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>guinea_pigs[<span class="st">'Dose'</span>].unique()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>array([0.5, 1. , 2. ])</code></pre>
@@ -866,7 +866,7 @@ Tip&nbsp;4.5: Example Solution 5.3.1 (excl. taxes)
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Skip the leading rows with the argument <code>header=8</code>. Select the worksheet with <code>sheet_name="5.3.1 (excl. taxes)"</code> and check the detected data types with <code>taxes.dtypes</code>.</p>
-<div id="fed4e598" class="cell" data-execution_count="11">
+<div id="64633147" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">'01-daten/table_531.xlsx'</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>taxes <span class="op">=</span> pd.read_excel(io <span class="op">=</span> file_path, sheet_name <span class="op">=</span> <span class="st">"5.3.1 (excl. taxes)"</span>, <span class="op">\</span></span>
@@ -911,7 +911,7 @@ dtype: object</code></pre>
 </div>
 </div>
 <p>View the values in the column ‘Republic of Türkiye’ using <code>pd.unique()</code>.</p>
-<div id="77411ca2" class="cell" data-execution_count="12">
+<div id="4c21eab7" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>taxes[<span class="st">'Republic of Türkiye'</span>].unique()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>array(['..', 2.0436081749999997, 3.3248584439999993, 3.2947581129644483,
@@ -936,7 +936,7 @@ dtype: object</code></pre>
 <li><p>Option 1: declare it as a missing value when reading the file.</p></li>
 <li><p>Option 2: determine the index position after reading and replace the value. The chained slicing <code>df["col"][row_indexer] = value</code> is no longer supported in Pandas version 3.0 and will raise an error. Use the following syntax instead: <code>df.loc[row_indexer, "col"] = value</code>.</p></li>
 </ul>
-<div id="e62e600b" class="cell" data-execution_count="13">
+<div id="8db68432" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 1: '..' declared as a missing value</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># taxes = pd.read_excel(io = file_path, sheet_name = "5.3.1 (excl. taxes)", \</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   header = 8, na_values = ['..'])</span></span>
@@ -998,7 +998,7 @@ dtype: object</code></pre>
 <h3 class="anchored" data-anchor-id="numpy-2">NumPy</h3>
 <p>The NumPy function <code>np.loadtxt()</code> is used to read complete datasets. Missing values in the dataset can be problematic because they may either cause data type errors or be skipped, resulting in a NumPy array shorter than the original dataset. Since NumPy arrays always have a single data type and fixed length, this can lead to errors when performing operations with multiple arrays.</p>
 <p>The following file is known to you from the w-NumPy exercises.</p>
-<div id="4c0e9537" class="cell" data-execution_count="14">
+<div id="5d5d4069" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">'01-daten/TC01.csv'</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>data_no_missing <span class="op">=</span> np.loadtxt(file_path)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1010,7 +1010,7 @@ Shape: (1513,) dtype: float64</code></pre>
 </div>
 </div>
 <p>Suppose you conducted a second measurement and want to calculate the difference between the two datasets. In the second measurement, sensor errors led to missing values, marked with <code>--</code>. However, the function <code>np.loadtxt()</code> cannot handle missing values and will return an error.</p>
-<div id="6bebda79" class="cell" data-execution_count="15">
+<div id="67631933" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">'01-daten/TC01_double_hyphen.csv'</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
@@ -1027,7 +1027,7 @@ Shape: (1513,) dtype: float64</code></pre>
 <section id="the-function-np.genfromtxt" class="level4">
 <h4 class="anchored" data-anchor-id="the-function-np.genfromtxt">The Function np.genfromtxt()</h4>
 <p>To read datasets with missing values, the function <code>np.genfromtxt(fname, delimiter=None, missing_values=None, filling_values=None)</code> is used. This function processes the dataset <code>fname</code> in two loops, which makes it slower than <code>np.loadtxt()</code>. The first loop splits the dataset line by line at the optional <code>delimiter</code> into strings. The second loop converts each string to the appropriate data type. With the optional arguments <code>missing_values</code> and <code>filling_values</code>, you can specify which strings indicate missing values and what they should be replaced with. (<a href="https://numpy.org/doc/stable/user/basics.io.genfromtxt.html">NumPy Documentation</a>)</p>
-<div id="6309ff07" class="cell" data-execution_count="16">
+<div id="2ac1fd0c" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">'01-daten/TC01_double_hyphen.csv'</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>data_double_hyphen <span class="op">=</span> np.genfromtxt(file_path, missing_values<span class="op">=</span><span class="st">'--'</span>, filling_values<span class="op">=</span>np.nan)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1040,7 +1040,7 @@ Shape: (1513,) dtype: float64</code></pre>
 </div>
 </div>
 <p>By converting missing values to <code>nan</code>, operations with equally sized NumPy arrays become possible.</p>
-<div id="9e12626f" class="cell" data-execution_count="17">
+<div id="be4e9b4d" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>data_difference <span class="op">=</span> data_no_missing <span class="op">-</span> data_double_hyphen</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data_difference)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1061,7 +1061,7 @@ Example&nbsp;4.1: Empty Cells with np.genfromtxt()
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>If a file contains empty cells, they cannot be read because they are automatically skipped.</p>
-<div id="49a54552" class="cell" data-execution_count="18">
+<div id="433cf200" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># File without missing value markers</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">'01-daten/TC01_empty_lines.csv'</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>data_empty_lines <span class="op">=</span> np.genfromtxt(file_path, missing_values<span class="op">=</span><span class="st">''</span>, filling_values<span class="op">=</span>np.nan) </span>
@@ -1075,7 +1075,7 @@ Shape: (1511,) dtype: float64</code></pre>
 </div>
 </div>
 <p>The array is two elements shorter. Subtracting it from a longer NumPy array fails with an error.</p>
-<div id="ae69ca7f" class="cell" data-execution_count="19">
+<div id="93505dfe" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> data_no_missing <span class="op">-</span> data_empty_lines</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ValueError</span> <span class="im">as</span> error:</span>
@@ -1088,7 +1088,7 @@ Shape: (1511,) dtype: float64</code></pre>
 </div>
 </div>
 <p>In this case, you need to resort to Python’s basic string processing. The processed list can then be read using <code>np.genfromtxt()</code> as usual.</p>
-<div id="0a697d5d" class="cell" data-execution_count="20">
+<div id="6a9d8aad" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the data via file object</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>data_file_empty_lines <span class="op">=</span> <span class="bu">open</span>(file_path, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>)</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>data_empty_lines <span class="op">=</span> data_file_empty_lines.readlines()</span>
@@ -1138,7 +1138,7 @@ Example&nbsp;4.2: Empty Cells in Multiple Columns with np.genfromtxt()
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Without specifying the <code>delimiter</code> argument, only one column is read, which contains only <code>np.nan</code>.</p>
-<div id="0dfd3352" class="cell" data-execution_count="21">
+<div id="8259aab1" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># without specifying delimiter</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">'01-daten/TC01_missing_values_multi_column.csv'</span></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>data_empty_lines2 <span class="op">=</span> np.genfromtxt(file_path, missing_values<span class="op">=</span><span class="st">''</span>, filling_values<span class="op">=</span>np.nan, ndmin<span class="op">=</span><span class="dv">2</span>)</span>
@@ -1154,7 +1154,7 @@ First three rows:
 </div>
 </div>
 <p>If the argument <code>delimiter=','</code> is passed, the file is read correctly.</p>
-<div id="829c43dd" class="cell" data-execution_count="22">
+<div id="d38b94d7" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># specifying the delimiter</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>data_empty_lines2 <span class="op">=</span> np.genfromtxt(file_path, delimiter<span class="op">=</span><span class="st">','</span>, missing_values<span class="op">=</span><span class="st">''</span>, filling_values<span class="op">=</span>np.nan, ndmin<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1199,7 +1199,7 @@ Example&nbsp;4.3: The Function np.argwhere()
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Another function to determine the index position of a value is <code>np.argwhere()</code>. Calling <code>np.argwhere(np.isnan(array))</code> returns a NumPy array with the index positions of elements with the value <code>nan</code>.</p>
-<div id="0cb2dd86" class="cell" data-execution_count="23">
+<div id="388c0bb6" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>array <span class="op">=</span> np.array([[<span class="dv">1</span>, np.nan, np.nan], [<span class="dv">4</span>, <span class="dv">5</span>, np.nan]])</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(array)</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1215,7 +1215,7 @@ Example&nbsp;4.3: The Function np.argwhere()
 </div>
 </div>
 <p>However, the array produced by <code>np.argwhere()</code> is not suitable for selecting array slices.</p>
-<div id="01bae976" class="cell" data-execution_count="24">
+<div id="8d0f1172" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    array[np.argwhere(np.isnan(array))]</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">IndexError</span> <span class="im">as</span> error:</span>
@@ -1228,7 +1228,7 @@ Example&nbsp;4.3: The Function np.argwhere()
 </div>
 </div>
 <p>For comparison with <code>np.nonzero()</code></p>
-<div id="74f35e1a" class="cell" data-execution_count="25">
+<div id="e1839eb5" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>    array[np.nonzero(np.isnan(array))]</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">IndexError</span> <span class="im">as</span> error:</span>
@@ -1252,7 +1252,7 @@ Note&nbsp;4.1: The Function np.argwhere()
 <div id="callout-8" class="callout-8-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>Selecting array slices with <code>np.argwhere()</code> works for one-dimensional arrays.</p>
-<div id="68466ff6" class="cell" data-execution_count="26">
+<div id="2a56a7f7" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>array <span class="op">=</span> np.array([<span class="dv">1</span>, np.nan, np.nan, <span class="dv">4</span>, <span class="dv">5</span>])</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
@@ -1289,7 +1289,7 @@ Example&nbsp;4.4: Value Assignment with Logical Vector
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Replacing specific values can also be achieved by selecting certain array elements using a logical (boolean) vector.</p>
-<div id="f45b597a" class="cell" data-execution_count="27">
+<div id="0fdaa11d" class="cell" data-execution_count="27">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, np.nan, <span class="dv">5</span>, <span class="dv">6</span>, np.nan])</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.isnan(a)</span>
@@ -1305,7 +1305,7 @@ Example&nbsp;4.4: Value Assignment with Logical Vector
 </div>
 </div>
 <p>Multiple conditions can be combined using the function <code>np.logical_or(x1, x2)</code> as a logical OR.</p>
-<div id="8aa522a1" class="cell" data-execution_count="28">
+<div id="6ab6b6df" class="cell" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, np.nan, <span class="dv">5</span>, <span class="dv">6</span>, np.nan])</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>condition1 <span class="op">=</span> np.isnan(a)</span>
@@ -1323,7 +1323,7 @@ Example&nbsp;4.4: Value Assignment with Logical Vector
 </div>
 <p>A logical AND is also possible (although it doesn’t make much sense when used with <code>np.nan</code>).<br>
 The <code>*</code> operator works the same way as the logical operator <code>and</code> or the function <code>np.logical_and(x1, x2)</code>.</p>
-<div id="e02d4e88" class="cell" data-execution_count="29">
+<div id="3dfd71b1" class="cell" data-execution_count="29">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, np.nan, <span class="dv">5</span>, <span class="dv">6</span>, np.nan])</span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>condition1 <span class="op">=</span> a <span class="op">&lt;</span> <span class="dv">4</span></span>
@@ -1347,7 +1347,7 @@ The <code>*</code> operator works the same way as the logical operator <code>and
 All elements with the value <code>nan</code> can be deleted like this: <code>np.delete(array, obj = np.nonzero(np.isnan(array)))</code></li>
 </ul>
 <p>NumPy does not automatically convert <code>None</code> to <code>nan</code>. Therefore, NumPy cannot determine the data type of the object and outputs <code>dtype=object</code>:</p>
-<div id="06a93daa" class="cell" data-execution_count="30">
+<div id="6b183923" class="cell" data-execution_count="30">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>np_array_with_none <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="va">None</span>, <span class="dv">4</span>])</span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np_array_with_none, np_array_with_none.dtype)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1368,7 +1368,7 @@ Tip&nbsp;4.6: Solution
 <div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>A logical comparison with <code>None</code> is possible. In this way, a boolean array can be created and used to select the index positions whose values should be replaced.</p>
-<div id="67eca846" class="cell" data-execution_count="31">
+<div id="63e8d736" class="cell" data-execution_count="31">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>np_array_with_none <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="va">None</span>, <span class="dv">4</span>])</span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np_array_with_none)</span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1399,7 +1399,7 @@ These functions can be easily recognized by their names.<br>
 For example, <code>np.nansum()</code> and <code>np.nancumsum()</code> return the sum and cumulative sum of an array, respectively.<br>
 In the cumulative sum, <code>nan</code> values are replaced by the running total.<br>
 A complete list of NumPy functions can be found in the <a href="https://numpy.org/doc/stable/reference/routines.html">documentation</a>.</p>
-<div id="b4cc1ed1" class="cell" data-execution_count="32">
+<div id="0d4844c4" class="cell" data-execution_count="32">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Array with nan:</span><span class="ch">\n</span><span class="sc">{</span>np_array_with_nan<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span>)</span>
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Sum of the array:</span><span class="ch">\n</span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">sum</span>(np_array_with_nan)<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span>)</span>
@@ -1440,7 +1440,7 @@ By default, the argument <code>na_filter = True</code> ensures that empty cells 
 Completely empty rows, however, are skipped by default.<br>
 This can be changed with the argument <code>skip_blank_lines = False</code>.<br>
 (<a href="https://pandas.pydata.org/docs/user_guide/io.html#io-navaluesconst">Pandas documentation</a>)</p>
-<div id="abc9f4ca" class="cell" data-execution_count="33">
+<div id="0c9e709b" class="cell" data-execution_count="33">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">'01-daten/TC01_double_hyphen.csv'</span></span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
@@ -1468,7 +1468,7 @@ This can be changed with the argument <code>skip_blank_lines = False</code>.<br>
 </div>
 </div>
 <p>With the argument <code>skip_blank_lines = False</code>, empty rows are also read in.</p>
-<div id="d9d87ef8" class="cell" data-execution_count="34">
+<div id="bce03333" class="cell" data-execution_count="34">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">'01-daten/TC01_empty_lines.csv'</span></span>
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
@@ -1501,7 +1501,7 @@ This can be changed with the argument <code>skip_blank_lines = False</code>.<br>
 <li><p><code>pd.NA</code> for strings and integers. The data type is preserved.</p></li>
 </ul>
 <p>Reading the file <code>TC01_empty_lines.csv</code> as strings:</p>
-<div id="82275bdb" class="cell" data-execution_count="35">
+<div id="0efbd4a6" class="cell" data-execution_count="35">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">'01-daten/TC01_empty_lines.csv'</span></span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
@@ -1543,7 +1543,7 @@ Example&nbsp;4.5: pd.Series with np.nan and pd.NA
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>A pd.Series with <code>np.nan</code> is automatically converted to <code>dtype: float64</code>:</p>
-<div id="c42f8bfc" class="cell" data-execution_count="36">
+<div id="7c6eb7e4" class="cell" data-execution_count="36">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>  test <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, np.nan])</span>
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">TypeError</span> <span class="im">as</span> error:</span>
@@ -1558,7 +1558,7 @@ dtype: float64</code></pre>
 </div>
 </div>
 <p>A pd.Series with <code>pd.NA</code> is read as <code>dtype: object</code>:</p>
-<div id="ae6f62c0" class="cell" data-execution_count="37">
+<div id="bab7dd37" class="cell" data-execution_count="37">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>  test <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, pd.NA])</span>
 <span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">TypeError</span> <span class="im">as</span> error:</span>
@@ -1573,7 +1573,7 @@ dtype: object</code></pre>
 </div>
 </div>
 <p>The <code>dtype</code> can be specified for a Series with <code>pd.NA</code>:</p>
-<div id="1048ecb8" class="cell" data-execution_count="38">
+<div id="6f39db60" class="cell" data-execution_count="38">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>  test <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, pd.NA], dtype <span class="op">=</span> <span class="st">'Int32'</span>)</span>
 <span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">TypeError</span> <span class="im">as</span> error:</span>
@@ -1589,7 +1589,7 @@ dtype: Int32</code></pre>
 </div>
 <p>Depending on the data type, the correct <code>dtype</code> (NumPy or Pandas) is important, which can be recognized by the capitalization.<br>
 <code>pd.NA</code> with a NumPy floating-point type:</p>
-<div id="91bdb5bd" class="cell" data-execution_count="39">
+<div id="0da97582" class="cell" data-execution_count="39">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>  test <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, pd.NA], dtype <span class="op">=</span> <span class="st">'float64'</span>)</span>
 <span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">TypeError</span> <span class="im">as</span> error:</span>
@@ -1602,7 +1602,7 @@ dtype: Int32</code></pre>
 </div>
 </div>
 <p><code>pd.NA</code> with a Pandas floating-point type:</p>
-<div id="4c26dac6" class="cell" data-execution_count="40">
+<div id="de19273e" class="cell" data-execution_count="40">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>  test <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, pd.NA], dtype <span class="op">=</span> <span class="st">'Float64'</span>)</span>
 <span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">TypeError</span> <span class="im">as</span> error:</span>
@@ -1617,7 +1617,7 @@ dtype: Float64</code></pre>
 </div>
 </div>
 <p><code>np.nan</code> with a NumPy floating-point type:</p>
-<div id="ad8c951c" class="cell" data-execution_count="41">
+<div id="f94c5a43" class="cell" data-execution_count="41">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>  test <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, np.nan], dtype <span class="op">=</span> <span class="st">'float64'</span>)</span>
 <span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">TypeError</span> <span class="im">as</span> error:</span>
@@ -1632,7 +1632,7 @@ dtype: float64</code></pre>
 </div>
 </div>
 <p><code>np.nan</code> with a Pandas floating-point type:</p>
-<div id="4ab20ed2" class="cell" data-execution_count="42">
+<div id="4e74f2e5" class="cell" data-execution_count="42">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>  test <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, np.nan], dtype <span class="op">=</span> <span class="st">'Float64'</span>)</span>
 <span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">TypeError</span> <span class="im">as</span> error:</span>
@@ -1663,7 +1663,7 @@ Note&nbsp;4.2: Warning: Logic!
 <div id="callout-13" class="callout-13-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>The logical evaluation of missing values differs for <code>None</code>, <code>np.nan</code>, and <code>pd.NA</code>.</p>
-<div id="135890d4" class="cell" data-execution_count="43">
+<div id="61cf5e72" class="cell" data-execution_count="43">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>bool_values <span class="op">=</span> [<span class="va">None</span>, <span class="bu">float</span>(<span class="st">'nan'</span>), pd.NA]</span>
 <span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> element <span class="kw">in</span> bool_values:</span>
@@ -1680,7 +1680,7 @@ boolean value of NA is ambiguous</code></pre>
 </div>
 </div>
 <p>This also applies to value equality.</p>
-<div id="163a22d6" class="cell" data-execution_count="44">
+<div id="e99cefa8" class="cell" data-execution_count="44">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>bool_values <span class="op">=</span> [<span class="va">None</span>, <span class="bu">float</span>(<span class="st">'nan'</span>), pd.NA]</span>
 <span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> element <span class="kw">in</span> bool_values:</span>
@@ -1714,7 +1714,7 @@ Value equality of &lt;NA&gt; is &lt;NA&gt;</code></pre>
 <section id="operations-with-missing-values-1" class="level4">
 <h4 class="anchored" data-anchor-id="operations-with-missing-values-1">Operations with Missing Values</h4>
 <p>Operations with <code>pd.NA</code> generally result in <code>pd.NA</code>. However, there are some exceptions:</p>
-<div id="9255507a" class="cell" data-execution_count="45">
+<div id="1e844dd6" class="cell" data-execution_count="45">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pd.NA <span class="op">**</span> <span class="dv">0</span>)</span>
 <span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span> <span class="op">**</span> pd.NA)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1723,7 +1723,7 @@ Value equality of &lt;NA&gt; is &lt;NA&gt;</code></pre>
 </div>
 </div>
 <p>The method <code>pd.Series.sum()</code> treats <code>pd.NA</code> as 0, while the method <code>pd.Series.prod()</code> treats it as 1.</p>
-<div id="a776fc1c" class="cell" data-execution_count="46">
+<div id="f4ff16b7" class="cell" data-execution_count="46">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb89"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pd.Series([pd.NA]).<span class="bu">sum</span>())</span>
 <span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pd.Series([pd.NA]).prod())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1732,7 +1732,7 @@ Value equality of &lt;NA&gt; is &lt;NA&gt;</code></pre>
 </div>
 </div>
 <p>Reducing methods like <code>pd.Series.min()</code> or <code>pd.Series.mean()</code> as well as cumulative methods like <code>pd.Series.cumsum()</code> or <code>pd.Series.cumprod()</code> skip <code>pd.NA</code>.</p>
-<div id="846a2857" class="cell" data-execution_count="47">
+<div id="fdbbbb24" class="cell" data-execution_count="47">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pd.Series([pd.NA]).<span class="bu">min</span>())</span>
 <span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pd.Series([pd.NA]).mean())</span>
 <span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pd.Series([pd.NA]).cumsum())</span>
@@ -1810,7 +1810,7 @@ Tip&nbsp;4.7: Example Solution: Missing Values
 <div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Using the method <code>df.info()</code>, it can be seen that the dataset is complete.</p>
-<div id="855a3054" class="cell" data-execution_count="48">
+<div id="e4f96da9" class="cell" data-execution_count="48">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">"01-daten/produkt_st_stunde_20230831_20240630_01303.txt"</span></span>
 <span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>solar <span class="op">=</span> pd.read_csv(file_path, sep <span class="op">=</span> <span class="st">";"</span>)</span>
 <span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1833,7 +1833,7 @@ memory usage: 399.1 KB</code></pre>
 </div>
 </div>
 <p>The method <code>df.describe()</code> generates descriptive statistics for numeric columns.</p>
-<div id="ce6b6978" class="cell" data-execution_count="49">
+<div id="8b022a88" class="cell" data-execution_count="49">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb95"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a>solar.describe()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="49">
 <div>
@@ -1940,7 +1940,7 @@ memory usage: 399.1 KB</code></pre>
 </div>
 </div>
 <p>Three columns have a minimum value of -999, which is not meaningful. How often does the value -999 appear in these columns?</p>
-<div id="33f91d6d" class="cell" data-execution_count="50">
+<div id="ec510d0c" class="cell" data-execution_count="50">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb96"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>counting_df <span class="op">=</span> solar[[<span class="st">'ATMO_LBERG'</span>, <span class="st">'FD_LBERG'</span>, <span class="st">'FG_LBERG'</span>]] <span class="op">==</span> <span class="op">-</span><span class="dv">999</span></span>
 <span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(counting_df.<span class="bu">sum</span>())</span>
 <span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total:</span><span class="ch">\t\t</span><span class="st">"</span>, counting_df.<span class="bu">sum</span>().<span class="bu">sum</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
