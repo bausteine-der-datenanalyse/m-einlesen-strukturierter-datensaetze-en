@@ -1,0 +1,228 @@
+# Data Type-Dependent Operations and Functions
+
+``` {python}
+# Preparation: reload modules from the previous chapter
+import pandas as pd
+```
+
+``` {python}
+# The + operator adds numbers
+print(1 + 13)
+
+# The + operator also concatenates strings
+print(str(1) + str(13))
+```
+
+The sorting function behaves differently depending on the data type.
+
+``` {python}
+# Create a list of date strings
+dates = pd.Series(['07.06.2000', '12.01.2000', '11.02.2000', '04.09.2000', '10.03.2000', '03.10.2000', '09.04.2000', '08.05.2000', '06.07.2000', '05.08.2000', '02.11.2000', '01.12.2000'])
+dates = pd.to_datetime(dates, format='%d.%m.%Y')
+
+print(f"An unsorted list of month abbreviations:\n{list(dates.dt.strftime('%b'))}")
+
+print(f"\nThe list sorted alphabetically:\n{sorted(list(dates.dt.strftime('%b')))}")
+
+print(f"\nThe list sorted as datetime objects:\n{list(dates.sort_values().dt.strftime('%b'))}")
+```
+
+:::
+
+::: {#tip-datatype .callout-tip collapse="false"}
+## Check and Validate Data Types
+When reading datasets, it is important to verify that data types are correctly detected or to actively control them. Further methods for formally checking data types and validating value ranges are presented in [@sec-numpypandas].
+:::
+
+### Missing Values {#sec-missing}
+A special data type is used to represent missing values. In Python, a distinction is made between non-existent and undefined values.
+
+#### Null Value `None`
+The so-called null value in Python is `None`, which is one of Python's defined keywords.
+``` {python}
+print(type(None))
+```
+
+`None` represents non-existent values and objects. Empty (but existing) objects do not belong to the `None` data type.
+
+``` {python}
+empty_list = []
+empty_list == None
+```
+
+`None` can be passed as an argument to functions or returned by them. However, operations with `None` are not allowed.
+
+``` {python}
+# Operations with None result in errors
+try:
+    print(None + 1)
+except TypeError as error:
+    print("The provided value causes the following error:\n", error)
+else:
+    print(None + 1)
+```
+
+One exception is conversion to a string.
+
+``` {python}
+# One exception is conversion to strings
+a = None
+print("\nprint(a) returns the null value:\n", a, sep="")
+
+print("\nstr(a) returns a string:")
+str(a)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### NaN
+To work with missing values within a dataset, there is the value `NaN`, which belongs to the floating-point class. `NaN` stands for Not a Number and represents undefined or unrepresentable values. For example, the method `pd.diff()` calculates the difference between each value and its predecessor. Since the first value has no predecessor, `NaN` is produced.
+
+``` {python}
+my_series = pd.Series([1, 2, 4, 8])
+my_series.diff()
+```
+
+Unlike `None`, `NaN` is not a built-in keyword in Python. The value `NaN` can be created using `float('nan')` or `float('NaN')`; capitalization does not matter. `NaN` therefore has the data type float. The `math` and `NumPy` modules also provide `math.nan` and `np.nan` to create `NaN`.
+
+``` {python}
+print(type(float('NaN')))
+```
+
+Operations can be performed with the value `NaN`. The result is always `NaN`.
+
+``` {python}
+print(float('NaN') + 1)
+```
+
+Some functions can handle `NaN` as a placeholder for missing values.
+
+``` {python}
+# Python built-ins
+print("sum():", sum([1, 2, float('NaN'), 4]), "\n")
+print("max():", max([1, 2, float('NaN'), 4]), "\n")
+print("any():", any([1, 2, float('NaN'), 4]), "\n")
+
+# Pandas
+data_with_nan = pd.Series([1, 2, float('NaN'), 4])
+print(data_with_nan + 1)
+print("\nSum of the dataset:", data_with_nan.sum())
+```
+
+::: {#wrn-logicbasepython .callout-warning appearance="simple" collapse="false"}
+## Warning: Logical Behavior!
+
+The logical evaluation of missing values differs for `None` and `NaN`.
+
+``` {python}
+bool_values = [None, float('NaN')]
+
+for element in bool_values:
+    bool_value = bool(element)
+    print("Boolean value of", element, "is", bool_value)
+```
+
+This also applies to value equality.
+
+``` {python}
+for element in bool_values:
+    result = element == element
+    print("Value equality of", element, "is", result)
+```
+
+::: 
+## Missing values in practice
+`None` and `NaN` are Python-specific representations for non-existent or undefined values. In practice, missing values in datasets are indicated in various ways.
+
+Common representations include:
+
+  - no entry, e.g., an empty string `""` in comma-separated files
+
+  - defined string: `NA` in the R programming language, `NULL` in SQL, `.` in Stata
+
+  - manually chosen values or digits outside the valid range such as -1, -88, -99 (often in survey data)
+
+The choice of representation has pros and cons. A defined string for missing values helps distinguish gaps in the dataset from data collection errors. For this, a defined string like "NA" is better than an empty string. Manually chosen values allow assigning specific behavior to each variable during automated analysis (e.g., distinguishing not applicable, refused response, don't know, interview terminated no reply).
+
+::: {#tip-missingvalues .callout-tip collapse="false"}
+## Missing values
+
+Identifying and, if necessary, cleaning missing values is an important step when reading structured datasets. It helps to know common conventions for missing values and the conventions of the respective file format or discipline. Sometimes intuition is also necessary. Suitable functions for identifying missing values are presented in @sec-numpypandas.
+
+:::
+
+## Metadata {#sec-metadata}
+Metadata are descriptive information about a dataset. Metadata can specify, for example:
+
+  - which data types a dataset contains,
+
+  - coding schemes, scales, or minimum and maximum allowed values,
+
+  - conditions under which the data were collected,
+
+  - origin of the data,
+
+  - relationships between variables and datasets,
+  
+  - copyright information and license notes.
+
+(cf. [The HDF Group Help Desk](https://docs.hdfgroup.org/archive/support/HDF5/doc/Advanced/HDF5_Metadata/index.html))
+
+Specialized file formats like netCDF or HDF explicitly declare metadata in dedicated fields. Many file formats lack such functionality. Relevant metadata are often found in the file name, column headers, additional sheets, or separate documents (which may not always be available).
+
+::: {#tip-metadata .callout-tip collapse="false"}
+## Metadata
+Before importing complex datasets, accompanying materials should be reviewed if available.
+
+:::
+
+## Tidy data {#sec-tidydata}
+Datasets are often designed with various purposes, e.g., for convenient data entry. This often means datasets need extensive cleaning for script-based data analysis.
+
+::: {.border layout="[5, 90, 5]"}
+&nbsp;
+
+“Tidy datasets are all alike, but every messy dataset is messy in its own way.” [@R-for-Data-Science, Chapter 5 Data tidying]
+
+&nbsp;
+:::
+
+Tidy data is a system by Hadley Wickham that helps organize datasets into a clean (tidy) format. Cleaning datasets is a preparatory task to minimize time spent reshaping data structures during actual analysis, allowing a greater focus on the analytical content. [@R-for-Data-Science, Chapter 5 Data tidying]
+
+::: {#imp-tidy-data .callout-important}
+## tidy data
+
+:::: {.border layout="[[5, 90, 5], [1]]"}
+
+&nbsp;
+
+::::: {}
+"The tidy data system consists of three rules:
+
+1. Each variable is a column; each column is a variable.
+
+2. Each observation is a row; each row is an observation.
+
+3. Each value is a cell; each cell is a single value."
+:::::
+
+&nbsp;
+
+[@R-for-Data-Science, Chapter 5 Data tidying, translated]
+::::
+:::
+
+Tidy data usually refers to two-dimensional datasets but also provides guidance for organizing datasets with different structures for analysis. Tidy data is not a strict rule; it is acceptable to use a different structure if it facilitates analysis.
+

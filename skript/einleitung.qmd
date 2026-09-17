@@ -1,0 +1,47 @@
+# Introduction
+
+In 2016, a study found that one-fifth of all scientific articles in the field of genetics were based on data distorted by the spreadsheet software Excel [@Ziemann-2016]. Gene names such as "MARCH1" were mistakenly converted into date formats. In 2021, this estimate of affected papers was even raised to 30 percent. ([heise online](https://www.heise.de/news/Excel-wandelt-Genbezeichnungen-in-Datumsangaben-um-Problem-groesser-als-gedacht-6165902.html))
+
+At the beginning of computer-based data analysis lies the task of reading data from files. In practice, reading data is anything but trivial. Data are stored in a variety of file formats. Therefore, in data analysis, it is essential to handle different file types: from small text files just a few kilobytes in size, to open and proprietary formats from common office applications, to files several hundred megabytes large in formats specifically developed for scientific data exchange. Programming languages such as Python and R provide various tools for reading, processing, and saving different file formats. Specialized packages further extend this toolbox.
+
+However, the practical challenges of data analysis are not limited to technical aspects. Often, the internal structure of datasets poses the greatest difficulties. An important part of reading structured datasets involves searching for and, if necessary, cleaning errors in the dataset. Dasu and Johnson write:
+
+::: {.border layout="[5, 90, 5]"}
+
+&nbsp;
+
+"Unfortunately, the data set is usually dirty, composed of many tables, and has unknown properties. Before any results can be produced, the data must be cleaned and explored—often a long and
+difficult task. [...] In our experience, the tasks of exploratory data mining and data cleaning constitute 80% of the effort that determines 80% of the value of the ultimate data
+mining results." (@Dasu-Johnson-2003, p. ix)
+
+&nbsp;
+
+:::
+
+&nbsp;
+
+Reading structured datasets therefore includes the entire process of technical file access, organization, error detection and correction, and storing the data in a form suitable for further processing.
+
+In practical data analysis, two simple tips can help when reading structured datasets:
+
+::: {#tip-editor .callout-tip collapse="false"}
+**Look at your data before reading it into Python!** A simple text editor or a spreadsheet application is sufficient (be mindful of automatic detection and conversion of date formats). A quick glance helps you identify the delimiters, thousands separators, date formats, missing value encodings, and Unicode encoding (such as UTF-8) used in your data.
+:::
+
+However, this is not always possible—for example, if your dataset contains hundreds of columns and tens of thousands of rows. This module therefore provides the tools to read datasets using only the means available in Python.
+
+It is not necessary to memorize all the details of the packages and functions presented here. The topic is too complex, and the behavior of functions often changes as the programming language evolves. The special features of the functions presented here serve as mental anchors to help you troubleshoot issues in practice.
+
+::: {#tip-dokumentation .callout-tip collapse="false"}
+**Use the documentation!** This way, you get a complete overview of default and optional parameters. You can also spot changes in program behavior and avoid unexpected errors.
+
+:::: {layout="[1, 1]"}
+
+![New feature in Python](00-bilder/added-in-pyhton.png){fig-alt="Hint about a new feature in Python"}
+
+![Deprecated feature in Python](00-bilder/deprecated-in-python.png){fig-alt="Hint about a deprecated feature in Python"}
+
+::::
+
+:::
+

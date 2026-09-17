@@ -1,0 +1,480 @@
+# Masked Arrays {#sec-ma}
+
+``` {python}
+# Preparation: reload modules from the previous chapter
+import numpy as np
+import pandas as pd
+```
+Masked arrays are an extension of NumPy designed to handle missing values, especially for integers.
+
+::: {.border layout="[5, 90, 5]"}
+
+&nbsp;
+
+"**nan**, short for 'not a number' [...] was specifically designed to address the problem of missing values, but the reality is that different platforms behave differently, making life more difficult. On some platforms, the presence of **nan** slows calculations 10-100 times. For integer data, no **nan** value exists. [...] Those wishing to avoid potential headaches will be interested in an alternative solution which has a long history in NumPy’s predecessors – **masked arrays**. [...] Despite their additional memory requirement, masked arrays are faster than nans on many floating point units." (SciPy.org Frequently Asked Questions, accessed via [waybackmachine](https://web.archive.org/web/20191007223944/https://scipy.org/scipylib/faq.html#does-numpy-support-nan))
+
+&nbsp;
+
+:::
+
+&nbsp;
+
+``` {python}
+# Missing values for integers are not a problem in Pandas
+print("A pd.Series of dtype Int64 with a missing value:")
+print(pd.Series([0, 1, np.nan], dtype='Int64'), "\n")
+
+# In NumPy, it is different
+try:
+    np.array([0, 1, np.nan], dtype='int')
+except ValueError as error:
+    print("Since np.nan is of float type, integer arrays cannot have missing values.\nThe input np.array([0, 1, np.nan], dtype='int') results in the error:\n", error)
+else:
+    np.array([0, 1, np.nan], dtype='int')
+
+print(f"The reason is the type of nan: type(np.nan)\n{type(np.nan)}\n")
+```
+
+Masked arrays are provided by the `numpy.ma` module and allow values to be marked as invalid or missing without replacing or deleting them.  
+A masked array consists of three elements:
+
+  1. a standard NumPy array containing the data,
+  
+  2. a mask, which is either `numpy.ma.nomask` if no values are invalid/missing, or a NumPy array of Boolean values for each element of the data array: `True` marks an invalid/missing value, `False` a valid value,
+  
+  3. a fill value used to replace values marked `True` in the mask. By default, this is the string `'--'`.
+  
+The underlying data array and mask can be accessed via the `.data` and `.mask` attributes.  
+Alternatively, the functions `ma.getmask(masked_array)` and `ma.getdata(masked_array)` can be used.  
+The fill value is applied using `masked_array.filled()`, which returns a copy of the data array; the original data remains unchanged.
+
+``` {python}
+import numpy.ma as ma
+
+masked_array = ma.masked_array(data=np.array([1, 2, 3, 4]), mask=[0, 0, 1, 1])
+print(f"masked array:\t{masked_array}")
+
+print(f"data:\t\t\t{masked_array.data}")
+
+print(f"mask:\t\t\t{masked_array.mask}")
+
+print(f"access via functions ma.getdata() and ma.getmask():\n{ma.getdata(masked_array), ma.getmask(masked_array)}\n")
+
+print(f"filled array:\t\t\t{masked_array.filled()}")
+
+print(f"The masked array remains unchanged: {masked_array}")
+```
+
+The default fill value depends on the data type of the NumPy array.
+
+| Data type | Default fill value |
+|:---:|:---:|
+| bool | True |
+| int | 999999 |
+| float | 1.e20 |
+| complex | 1.e20+0j |
+| object | '?' |
+| string | 'N/A' |
+
+The default fill value can be retrieved using `np.ma.default_fill_value()`.
+
+``` {python}
+print(np.ma.default_fill_value(1))
+print(np.ma.default_fill_value('1'))
+```
+
+([NumPy Documentation](https://numpy.org/doc/2.1/reference/generated/numpy.ma.default_fill_value.html))
+
+The fill value can be changed via the attribute `masked_array.fill_value`.  
+Assigning `masked_array.fill_value = None` resets the fill value to the default.
+
+``` {python}
+# Create a masked array of integer type with an integer fill value
+masked_array = ma.masked_array(data=np.arange(0, 4), mask=[0, 0, 1, 1], fill_value=42)
+
+print(f"Filled array of integer type with integer fill value:\n{masked_array.filled()}\n")
+
+# Change fill value to float
+masked_array.fill_value = 1.5
+print(f"If a float fill value is assigned to an integer masked array,\nonly the integer part is used:\n{masked_array.filled()}\n")
+
+print(f"If a string fill value is assigned to an integer masked array,\nan error occurs:\n")
+
+try:
+    masked_array.fill_value = '1.5'
+    print(masked_array.filled())
+except TypeError as error:
+    print(error)
+else:
+    masked_array.fill_value = '1.5'
+    print(masked_array.filled())
+
+# Fill value None
+masked_array.fill_value = None
+print(f"\nThe fill value None resets to the default for the data type:\n{masked_array.filled()}")
+```
+
+## Creating Masked Arrays
+Masked arrays can be created in multiple ways. A complete overview is available in the [documentation](https://numpy.org/doc/stable/reference/maskedarray.generic.html#constructing-masked-arrays).
+
+``` {python}
+a = np.array([1, 10, 100, 1000])
+
+print(f"The method ma.asanyarray(array, dtype=) sets the data type of the masked array.\n"
+      f"ma.asanyarray(a, dtype='float64'):\n"
+      f"{ma.asanyarray(a, dtype='float64')}\n")
+
+print(f"The method ma.masked_equal(x=array, value) masks all values equal to value.\n"
+      f"ma.masked_equal(a, 100):\n"
+      f"{ma.masked_equal(a, 100)}\n")
+
+print(f"The method ma.masked_greater(x=array, value) masks all values greater than value.\n"
+      f"ma.masked_greater(a, 100):\n"
+      f"{ma.masked_greater(a, 100)}\n")
+
+print(f"The method ma.masked_inside(x=array, v1, v2) masks all values in the interval v1 to v2.\n"
+      f"ma.masked_inside(a, 5, 100):\n"
+      f"{ma.masked_inside(a, 5, 100)}\n")
+
+print(f"The method ma.masked_where(condition, a=array) masks all values where the condition is True.\n"
+      f"ma.masked_where(a % 2 != 0, a):\n"
+      f"{ma.masked_where(a % 2 != 0, a)}\n")
+```
+
+The NumPy function `genfromtxt(usemask=True)` can generate a masked array when the corresponding argument is used.
+
+``` {python}
+file_path = '01-daten/TC01_double_hyphen.csv'
+data_double_hyphen = np.genfromtxt(file_path, missing_values='--', usemask=True)
+data_double_hyphen
+```
+
+Another way to mask array elements is to assign `ma.masked` to individual values or a range of values in a masked array.
+
+``` {python}
+masked_array = ma.masked_array([1, 2, 3, 4])
+
+masked_array[1] = ma.masked
+print(masked_array)
+
+masked_array[1:3] = ma.masked
+print(masked_array)
+```
+
+## Exercise: Creating Masked Arrays
+
+Given the NumPy array `np.linspace(1, 1000, 18, dtype='int')`, **create a masked array from it.**
+
+  a. Mask every value in the interval 250 to 750. How many values are masked?
+  
+  b. Mask every second value. What is the sum of the masked array?
+
+  c. Mask every even value.
+
+  d. Mask every value that has at least 3 digits.
+
+::: {#tip-ma .callout-tip collapse="true"}
+## Sample Solution for Creating Masked Arrays
+
+``` {python}
+import numpy as np
+import numpy.ma as ma
+
+# Create array
+a = np.linspace(1, 1000, 18, dtype='int')
+
+# Mask values in the interval 250-750
+masked_ma = ma.masked_inside(x=a, v1=250, v2=750)
+print("Mask values in interval 250-750:")
+print(masked_ma, "Number of masked values:", masked_ma.mask.sum(), "\n")
+
+# Mask every 2nd value
+masked_ma = ma.masked_array(a)
+masked_ma[::2] = ma.masked
+print("Every 2nd value masked:")
+print(masked_ma, "Sum of unmasked values:", masked_ma.sum(), "\n")
+
+# Mask every even value
+masked_ma = ma.masked_where(a % 2 == 0, a)
+print("Every even value masked:")
+print(masked_ma, "\n")
+
+# Mask every value with at least 3 digits
+masked_ma = ma.masked_where(a >= 100, a)
+print("Every value with at least 3 digits masked:")
+print(masked_ma)
+
+# Alternative approach using string length
+my_mask = [len(str(i)) >= 3 for i in a]
+masked_ma = ma.masked_array(data=a, mask=my_mask)
+print(f"Masked array using string length mask:\n{masked_ma}")
+```
+
+::: 
+
+## Unmasking, Soft and Hard Masks
+
+A masked array can be unmasked in several ways.
+
+``` {python}
+import numpy as np
+import numpy.ma as ma
+
+# Original masked array
+my_ma = ma.masked_inside(np.linspace(1, 1000, 18, dtype='int'), 250, 750)
+
+# 1. Set mask to ma.nomask
+unmask_me = my_ma.copy()
+unmask_me.mask = ma.nomask
+print(f"Mask can be set to ma.nomask to unmask all values:\n{unmask_me}\n")
+
+# 2. Set mask to False
+unmask_me = my_ma.copy()
+unmask_me.mask = False
+print(f"Mask set to False unmasking all values:\n{unmask_me}\n")
+
+# 3. Reassign values (mask is lost when creating a new array)
+unmask_me = np.linspace(1, 1000, 18, dtype='int')
+print(f"Masking is removed if the array is reassigned:\n{unmask_me}\n")
+```
+
+Unmasking is also possible for index ranges.
+
+``` {python}
+unmask_me = my_ma.copy()
+unmask_me[6:10].mask = ma.nomask
+print(f"The mask can be set to ma.nomask or False.\n"
+      f"unmask_me[6:10].mask = ma.nomask: {unmask_me}\n")
+
+unmask_me = my_ma.copy()
+unmask_me[6:10].mask = False
+print(f"unmask_me[6:10].mask = False: {unmask_me}\n")
+
+unmask_me = my_ma.copy()
+unmask_me[6:10] = np.linspace(1, 1000, 4, dtype='int')
+print(f"The masking is also removed by assigning values.")
+print(f"unmask_me[6:10] = np.linspace(1, 1000, 4, dtype='int'):\n"
+      f"{unmask_me}\n")
+```
+
+In particular, unmasking by assigning a value to an indexed range can lead to unintended behavior.
+
+#### soft and hard masks
+The mask of a masked array is mutable, known as a soft mask. To protect the mask from modifications, it can be converted to a hard mask using the argument `ma.array(data=[data], mask=[mask], hard_mask=True)` or with the method `masked_array.harden_mask()`.
+
+```{python}
+unmask_me = my_ma.copy()
+unmask_me.harden_mask()
+unmask_me.mask = ma.nomask
+print(f"The hard mask is set to ma.nomask.\n"
+      f"unmask_me.mask = ma.nomask: {unmask_me}\n")
+
+unmask_me.mask = False
+print(f"unmask_me.mask = False: {unmask_me}\n")
+
+unmask_me = np.linspace(1, 1000, 18, dtype='int')
+print(f"The hard mask is still overridden by value assignment.\nThe object is re-created.")
+print(f"unmask_me = np.linspace(1, 1000, 18, dtype='int'):\n"
+      f"{unmask_me}\n")
+```
+
+A hard mask protects an indexed range from unmasking, even through value assignment.
+
+```{python}
+unmask_me = my_ma.copy()
+unmask_me.harden_mask()
+unmask_me[6:10].mask = ma.nomask
+print(f"The hard mask is set to ma.nomask.\n"
+      f"unmask_me.mask[6:10] = ma.nomask: {unmask_me}\n")
+
+unmask_me[6:10].mask = False
+print(f"unmask_me[6:10].mask = False: {unmask_me}\n")
+
+unmask_me[6:10] = np.linspace(1, 1000, 4, dtype='int')
+print(f"The hard mask is NOT overridden by value assignment within the indexed range.")
+print(f"unmask_me[6:10] = np.linspace(1, 1000, 4, dtype='int'):\n"
+      f"{unmask_me}\n")
+```
+
+However, a hard mask can be extended to additional indexed ranges.
+
+```{python}
+unmask_me[0:2] = ma.masked
+print(f"Masking additional elements is possible with a hard mask.\n"
+      f"{unmask_me}") 
+```
+
+A hard mask can be removed using the method `masked_array.soften_mask()`.
+
+```{python}
+unmask_me.soften_mask()
+unmask_me.mask = ma.nomask
+print(f"{unmask_me}") 
+```
+
+([NumPy Documentation](https://numpy.org/doc/stable/reference/maskedarray.generic.html#unmasking-an-entry))
+
+## Operations with Masked Arrays
+Arithmetic and comparison operations on masked arrays are not applied to the masked elements.
+
+<https://numpy.org/doc/stable/reference/maskedarray.generic.html#operations-on-masked-arrays>
+
+<https://numpy.org/doc/2.1/reference/routines.ma.html>
+
+```{python}
+# Create array
+a = np.linspace(1, 1000, 18, dtype='int')
+masked_array_example = ma.masked_array(a)
+masked_array_example[::2] = ma.masked
+
+# Selected operations
+print(f"Sum of masked_array_example: {masked_array_example.sum()}\tSum of masked_array_example.data: {masked_array_example.data.sum()}")
+print(f"masked_array_example > 222:\n{masked_array_example > 222}")
+```
+
+Arithmetic and comparison operations involving masked elements always result in masked outputs.
+
+```{python}
+print("NumPy is inconsistent when operating with np.nan.")
+print(f"np.nan ** 0:\t{np.nan ** 0}")
+print(f"1 ** np.nan:\t{1 ** np.nan}")
+print(f"np.nan == np.nan:\t{np.nan == np.nan}\n")
+
+print("Masked arrays, on the other hand, behave consistently.")
+print(f"masked_array_example[0] ** 0:\t\t\t\t\t\t{masked_array_example[0] ** 0}")
+print(f"1 ** masked_array_example[0]:\t\t\t\t\t\t{1 ** masked_array_example[0]}")
+print(f"masked_array_example[0] == masked_array_example[2]:\t{masked_array_example[0] == masked_array_example[2]}")
+print(f"masked_array_example[0] == np.nan:\t\t\t\t\t{masked_array_example[0] == np.nan}")
+```
+
+The `numpy.ma` module implements most NumPy functions (see [NumPy Documentation](https://numpy.org/doc/2.1/reference/routines.ma.html)). Functions that only accept a certain range of input values return the value `masked` when values outside the valid range are passed. An example is the function `ma.log()`.
+
+```{python}
+ma.log([-1, 0, 1, 2])
+```
+
+Operations with multiple arrays are also possible. In the result, every element that was masked in the input is also masked.
+
+```{python}
+print(a + masked_array_example)
+print(np.logical_or(a, masked_array_example))
+```
+
+Aggregate functions like `len()` or `ma.unique(masked_array)` are also applied to the masked elements.
+
+```{python}
+# Selected operations
+print(len(masked_array_example))
+print(ma.unique(masked_array_example))
+```
+
+::: {#wrn-masked-arrays appearance="simple" .callout-warning}
+## Warning: Masked Arrays
+
+The documentation warns that masked values are not reliably excluded from operations. It does not specify which operations this applies to.
+
+:::: {.border layout="[[5, 90, 5], [5, 90, 5], [1]]"}
+
+&nbsp;
+
+"Arithmetic and comparison operations are supported by masked arrays. As much as possible, invalid entries of a masked array are not processed, meaning that the corresponding `data` entries *should* be the same before and after the operation.
+
+&nbsp;
+
+&nbsp;
+
+:::: {.callout-warning}
+We need to stress that this behavior may not be systematic, that masked data may be affected by the operation in some cases and therefore users should not rely on this data remaining unchanged."
+::::
+
+&nbsp;
+
+<https://numpy.org/doc/stable/reference/maskedarray.generic.html#operations-on-masked-arrays>
+
+::::
+:::
+
+## Exercises: Operations with Masked Arrays
+
+1. Create a two-dimensional array (10x10) of numbers 1 through 100. Mask all odd values that are divisible by 3.
+
+2. Then compute the sum of the masked values and the sum of the unmasked values.
+
+3. Reset the mask so that no values are masked.
+
+4. Prime number sieve: Mask all elements that have the value 1 or are multiples of prime numbers until the filled array contains only prime numbers (see [Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)).
+
+5. How many prime numbers are in the array? Which is the largest and which is the smallest prime number? Sort the prime numbers in descending order.
+
+::: {#tip-masked-arrays .callout-tip collapse="true"}
+## Example Solution
+
+```{python}
+# 1. Create NumPy array and mask
+masked_array_example = np.arange(1, 100 + 1).reshape(10, 10)
+masked_array_example = ma.masked_where(condition=(masked_array_example % 2 != 0) & (masked_array_example % 3 == 0), a=masked_array_example)
+print(masked_array_example, "\n")
+```
+
+```{python}
+# 2. Compute sums
+print(f"Sum of masked values: {masked_array_example.data[masked_array_example.mask].sum()}\tSum of unmasked values: {masked_array_example.sum()}\n")
+```
+
+```{python}
+# 3. Reset mask
+masked_array_example.mask = False
+print(masked_array_example, "\n")
+```
+
+```{python}
+# 4. Prime number sieve
+## 1
+i = 1
+condition1 = masked_array_example == i
+sieve = ma.masked_where(condition1, masked_array_example)
+print(f"i = {i}\n{sieve}\n")
+
+## 2
+i = 2
+condition2 = (masked_array_example > i) & (masked_array_example % i == 0)
+sieve = ma.masked_where(condition1 | condition2, masked_array_example)
+print(f"also multiples of {i}\n{sieve}\n")
+
+## 3
+i = 3
+condition3 = (masked_array_example > i) & (masked_array_example % i == 0)
+sieve = ma.masked_where(condition1 | condition2 | condition3, masked_array_example)
+print(f"also multiples of {i}\n{sieve}\n")
+
+## 5
+i = 5
+condition5 = (masked_array_example > i) & (masked_array_example % i == 0)
+sieve = ma.masked_where(condition1 | condition2 | condition3 | condition5, masked_array_example)
+print(f"also multiples of {i}\n{sieve}\n")
+
+## 7
+i = 7
+condition7 = (masked_array_example > i) & (masked_array_example % i == 0)
+sieve = ma.masked_where(condition1 | condition2 | condition3 | condition5 | condition7, masked_array_example)
+print(f"also multiples of {i}\n{sieve}\n")
+```
+
+```{python}
+# 5. Various tasks
+## How many prime numbers are in the array?
+print("Number of prime numbers:", sieve.size - sieve.mask.sum())
+
+## Which is the largest and which is the smallest prime number?
+print(sieve.max(), sieve.min())
+
+## Sort prime numbers in descending order
+### ma.sort() only sorts in ascending order, therefore:
+### pass the 1D array sieve.flatten() in reversed order [::-1]
+### then reshape into 2D array
+### endwith=False: missing values are treated as smallest values
+print(ma.sort(sieve.flatten(), endwith=False)[::-1].reshape(sieve.shape))
+```
+
+:::
+

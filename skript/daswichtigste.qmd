@@ -1,0 +1,13 @@
+# Key Takeaways (possibly as a video)
+Reading structured datasets may seem like an impenetrable jungle of required technical knowledge after working through this module: different technical formats, the large variety of packages and functions, and often a non-intuitive internal structure that needs to be organized. In this module, various tips were provided, which will not be repeated here individually.
+
+The main point is that success in reading complex datasets relies less on the correct application of specific functions and more on a **structured approach**. Correct function usage is, of course, essential, but correct syntax can and should be looked up in the documentation (@tip-dokumentation).  
+You can achieve a structured approach with these three tips:
+
+1. Work with a package that you are comfortable with and know well. This avoids errors caused by unexpected or undocumented behavior. This applies, for example, to operations with missing values or functions that fail silently.
+
+2. Check key characteristics of the datasets you want to work with, such as structure, data types, value ranges, and the presence and marking of missing values. Use the available functions for descriptive data analysis (@tip-pandasinfo). If needed, write helper functions to display certain elements or their positions.
+
+3. Proceed in small steps: print the result of each intermediate step (partially) for visual inspection. Does the output make sense? Use your domain knowledge to assess it. Minor `print()` statements can later be removed from the script.  
+   For very large datasets, visual inspection may not be practical. In such cases, it is helpful to create test data that reflects the expected structure of the dataset to program the steps. Then compare the results for the test data with those for the actual dataset, as described in the previous tip.
+

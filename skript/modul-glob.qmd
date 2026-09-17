@@ -1,0 +1,393 @@
+# Accessing multiple local files: `glob` module
+
+``` {python}
+# Preparation: reload modules from the previous chapter
+import numpy as np
+import pandas as pd
+```
+
+::: {.border}
+The [glob](https://docs.python.org/3/library/glob.html#module-glob) module allows you to return all file paths in a folder that match a pattern specified in the `pathname` argument using the function  
+`glob.glob(pathname, *, root_dir=None, recursive=False)`.  
+
+The `pathname` argument can be passed either as a keyword or positionally, while the other arguments must be passed as keywords (denoted by `*`).  
+The folder path is specified using the argument `root_dir`, which defaults to the current working directory.  
+Placeholders, so called `wildcards`, can be used in `pathname` to specify arbitrary characters or sequences.
+
+| Wildcard | Function |
+| :--: | :------------: |
+| `*` | any sequence of characters except path elements like `/` or `.` |
+| `?` | exactly one arbitrary character |
+| `[]` | any character enclosed in brackets, including wildcards `*` and `?` |
+| `[0-9]` | any digit from 0 to 9 |
+
+&nbsp;
+
+Under the path `'01-daten/glob'`, there are various files, some located in a subfolder.
+
+``` {python}
+import glob
+folder_path = '01-daten/glob'
+
+path_list = glob.glob(pathname='*', root_dir=folder_path, recursive=False)
+print(path_list)
+```
+
+The `recursive` argument controls whether subfolders are also searched.  
+To include subfolders, `recursive` must be set to `True` and `**` must be used in the `pathname`.
+
+``` {python}
+path_list = glob.glob(pathname='**', root_dir=folder_path, recursive=True)
+print(path_list)
+```
+
+In the specified path `'01-daten/glob'`, the files `'hintergrund.png'`, `'ToothGrowth.csv'`, `'Unfallorte2020_LinRef.csv'`, `'Unfallorte2022_LinRef.csv'` as well as the subfolder `'Unterordner glob'` are located.  
+In this subfolder, the files `'Unfallorte2021_LinRef.csv'` and `'Unfallorte2023_LinRef.csv'` are stored.
+
+To restrict the search results to the files  
+`'Unfallorte2020_LinRef.csv'`, `'Unfallorte2021_LinRef.csv'`, `'Unfallorte2022_LinRef.csv'`, and `'Unfallorte2023_LinRef.csv'`,  
+the `pathname` argument must be adjusted accordingly.  
+**Check the [glob module documentation](https://docs.python.org/3/library/glob.html#module-glob) and provide an appropriate file path.**
+
+::: {#tip-glob .callout-tip collapse="true"}
+## Tip and sample solution
+
+Tip: The desired files start with the letter `'U'` and end with the file extension `'.csv'`.  
+How to read files from a folder and subfolder is shown in the linked documentation under Examples.
+
+:::: {#tip-glob .callout-tip collapse="true"}
+## Sample solution using `glob`
+
+``` {python}
+path_list = glob.glob(pathname='**/U*.csv', root_dir=folder_path, recursive=True)
+print(path_list)
+```
+
+::::  
+::::
+
+With the file paths, the files can be read into a list using a loop  
+(for readability, only the first 3 rows and first 3 columns are read).
+
+``` {python}
+list_of_files = []
+for path in path_list:
+    temp_df = pd.read_csv(
+        filepath_or_buffer=folder_path + '/' + path, 
+        delimiter=';', 
+        nrows=3, 
+        usecols=[0, 1, 2]
+    )
+    list_of_files.append(temp_df)
+    print(path, "\n", temp_df, "\n")
+```
+
+The datasets from the list can then be assigned to their own objects.
+
+``` {python}
+accident_data2020 = list_of_files[0]
+accident_data2021 = list_of_files[2]
+accident_data2022 = list_of_files[1]
+accident_data2023 = list_of_files[3]
+
+print(accident_data2020, "\n")
+print(accident_data2020.dtypes)
+```
+
+The objects could also be merged into a single DataFrame.
+
+``` {python}
+# unify the column OID_ / OBJECTID
+accident_data = pd.concat(
+    [accident_data2020.iloc[:, 1:3],
+     accident_data2022.iloc[:, 1:3],
+     accident_data2023.iloc[:, 1:3]],
+    ignore_index=True
+)
+accident_data.insert(loc=0, column='OBJECTID', value=pd.Series(range(1, accident_data.shape[0] + 1)))
+accident_data = accident_data.astype('uint64')
+
+accident_data
+```
+
+[@Arnold-2023-functions-modules-files]
+
+:::
+
+## Exercises: `glob` module
+
+#### Easy: US State Facts and Figures
+In the folder `"01-daten/glob leicht"` there are several `.CSV` files containing data on the US states.  
+**Read the files into a new dataset.**
+
+  - What are the file names?
+
+  - Which regions are distinguished in the datasets?
+  
+  - How many states belong to each region?
+  
+  - Which region is the largest by area?
+
+::: {.border}
+
+US State Facts and Figures by Becker, R. A., Chambers, J. M., and Wilks, A. R. (1988) *The New S Language.* Wadsworth & Brooks/Cole. [rdocumentation.org](https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/state). Datasets:
+
+  - `state.abb`
+
+  - `state.area`
+
+  - `state.name`
+
+  - `state.region`
+
+In R, the datasets can be accessed by typing the dataset name in the console.
+
+:::
+
+::: {#tip-sample-solution-glob .callout-tip collapse="true"}
+## Sample solution: US State Facts and Figures
+
+Using the `glob` module, the paths of the files in the folder are stored in a list.  
+In a loop, each file is opened as a file object using the function `open()`, then the file name and content are read to inspect them.
+
+``` {python}
+import os
+folder_path = "01-daten/glob leicht"
+path_list = glob.glob(pathname='*', root_dir=folder_path, recursive=False)
+
+list_of_files = []
+names_of_files = []
+for path in path_list:
+
+    # open file object
+    temp_file = open(folder_path + '/' + path, 'r')
+    
+    # extract file name
+    name = os.path.basename(temp_file.name)
+    names_of_files.append(name)
+
+    # read file content
+    file_content = temp_file.read()
+    list_of_files.append(file_content)
+
+    # display
+    print(name, "Encoding:", temp_file.encoding)
+    print(file_content[0:40], "\n")
+
+    # close file object
+    temp_file.close()
+
+print(f"The files are named:\n{names_of_files}")
+```
+
+Next, the data is stored in a dataset `states`.  
+The column names can be derived from the file names without the file extension.
+
+``` {python}
+# prepare column names
+for i, name in enumerate(names_of_files):
+    names_of_files[i] = name[:-4]  # remove file extension
+
+# create DataFrame
+states = pd.DataFrame()
+for i, path in enumerate(path_list):
+    temp_file = open(folder_path + '/' + path, 'r')
+    states[i] = pd.read_csv(filepath_or_buffer=temp_file, sep=' ', usecols=[1])  # skiprows=1 would skip first state
+    temp_file.close()
+
+# assign column names
+states.columns = names_of_files
+
+print(f"The regions are:\n{states['state region'].unique()}\n")
+
+states.head()
+```
+
+Next, the number of states and the total area per region can be determined.
+
+``` {python}
+print(f"The number of states per region is:\n{states.groupby('state region')['state name'].apply(len)}\n")
+print(f"The total area of each region is:\n{states.groupby('state region')['state area'].apply(sum)}\n")
+```
+
+:::
+
+#### Hard: DSB Accident Atlas
+In the script, data from the DSB Accident Atlas has already been read in.  
+For readability, only the first three rows and columns were initially imported.  
+For this task, the files in the path `'01-daten/glob schwer'` should be read completely and merged into a single dataset.  
+One challenge is that the column names for road condition and the ID variable are not consistent.
+
+::: {.border}
+
+Germany Accident Atlas. Provided by the Federal and State Statistical Offices under the license [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.de) and available at the [Statistics portal of the Federal and State governments](https://unfallatlas.statistikportal.de/). 2024
+
+:::
+
+:::  {#tip-sample-solution-accidentatlas .callout-tip collapse="true"}
+## Sample solution: Accident Atlas
+
+The survey year is a variable in the dataset.  
+However, we show how it can be extracted from the file name.
+
+First, the folder contents and then the file paths are read.
+
+``` {python}
+# read folder contents
+folder_path = '01-daten/glob schwer'
+path_list = glob.glob(pathname='**', root_dir=folder_path, recursive=True)
+print(f"There are {len(path_list)} items in the search path. Names are:\n{path_list}\n")
+
+# read file paths
+path_list = glob.glob(pathname='**/U*.csv', root_dir=folder_path, recursive=True)
+print(f"There are {len(path_list)} CSV files in the search path. File names are:\n{path_list}\n")
+```
+
+Next, the years are extracted from the file paths, and the column names are read.
+
+To extract the years from the file names, the strings can be manually sliced (the year is at index positions 10 to 14, exclusive).  
+Alternatively, a regular expression can be used.  
+Regular expressions are handled with the `re` module.  
+The function `re.search(string=x, pattern='[0-9]+')` searches the object `x` for the pattern specified in `pattern`, here a digit `[0-9]` followed by one or more digits `+`.  
+`re.search()` returns a match object, whose content can be accessed with the method `Match.group()`, returning a string. (see [re module documentation](https://docs.python.org/3/library/re.html#match-objects))
+
+To read the column names, `pd.read_csv()` is used with `nrows=1, header=0` to read the first row.  
+The column names can then be visually inspected — implemented in the `DataFrame of column names` tab.  
+For larger datasets, this is impractical.  
+An algorithmic solution is implemented in the `Find column names` tab, comparing each column of the DataFrame against all others using `pd.Series.isin(df)`.
+
+:::: {.panel-tabset}
+
+## Extract years and column names
+``` {python}
+# extract years
+import re
+
+years = []
+for path in path_list:
+    temp = re.search(string=path, pattern='[0-9]+').group()
+    years.append(int(temp))
+
+print(f"Years extracted from file names:\t{years}\n")
+
+# extract column names by reading the first row, header=None
+list_of_columns = []
+for path in path_list:
+    temp = pd.read_csv(
+        filepath_or_buffer=folder_path + '/' + path, 
+        delimiter=';', 
+        nrows=1, 
+        header=None
+    ).transpose()
+    list_of_columns.append(temp)
+
+df_of_columns = pd.concat(list_of_columns, axis=1, ignore_index=True)
+df_of_columns.columns = years
+```
+
+The column names are displayed in the next tab.
+
+## DataFrame of column names
+By printing this DataFrame, inconsistent column names can be visually identified.
+
+``` {python}
+print(f"A DataFrame of the column names:\n{df_of_columns}")
+```
+
+## Find column names
+The mismatched column names can also be reconciled algorithmically.
+
+``` {python}
+# algorithmically compare column names
+unequal_column_names = pd.Series(dtype='object')
+
+# compare each column against all other columns
+for i in range(df_of_columns.shape[1]):
+
+    current_column = df_of_columns.iloc[:, i]
+    comparison_df = df_of_columns.drop(df_of_columns.columns[i], axis=1)
+
+    j = 0
+    for comparison_column in comparison_df:  # comparison_column is the year (int) 2020, 2021, etc.
+
+        # mask for missing column names
+        missing_mask = current_column.isin(comparison_df.loc[:, comparison_column])
+        missing_mask = np.invert(missing_mask)  # pandas does not have .invert() for Series
+
+        # IF missing column names THEN
+        if missing_mask.sum() > 0:
+            print(f"In accident data {df_of_columns.columns[i]}, the column names {current_column[missing_mask].values} are missing in accident data {comparison_df.columns[j]}.\n")
+            unequal_column_names = pd.concat([unequal_column_names, pd.Series(current_column[missing_mask].values)])
+
+        j += 1
+
+unequal_column_names = unequal_column_names.dropna().unique()
+print(f"The following column names need to be standardized:\n{unequal_column_names}")
+```
+
+::::
+
+&nbsp;
+
+The column names `'STRZUSTAND'`, `'IstStrassenzustand'`, and `'USTRZUSTAND'` as well as `'OBJECTID'` and `'OID_'` must be standardized when reading in the data.  
+The column `'PLST'` was only recorded in 2023 and can be omitted (see Accident Atlas metadata).  
+The argument `errors='ignore'` is passed to `pd.DataFrame.drop()` to prevent errors if the column is missing in a dataset.
+
+The column `'UIDENTSTLAE'` contains very large integers, so it is read in as a string.
+
+``` {python}
+## read files
+accident_atlas = pd.DataFrame()
+
+for path in path_list:
+
+    ### read file
+    temp_df = pd.read_csv(
+        filepath_or_buffer=folder_path + '/' + path,
+        delimiter=';', 
+        dtype={'UIDENTSTLAE': 'string'}
+    )
+
+    ### standardize column names
+    temp_df.rename(columns={
+        "IstStrassenzustand": "STRZUSTAND",
+        "USTRZUSTAND": "STRZUSTAND",
+        "OID_": "OBJECTID"
+    }, inplace=True)
+    temp_df.drop(columns="PLST", inplace=True, errors='ignore')
+
+    accident_atlas = pd.concat([accident_atlas, temp_df])
+
+# output
+print(accident_atlas.info(), "\n")
+accident_atlas.head()
+```
+
+&nbsp;
+
+Finally, the dataset can be cleaned up:
+
+  - sort the dataset by year (important: do this first),
+  
+  - reset the index (important: do this second),
+  
+  - recreate the `'OBJECTID'` column to remove duplicates generated during import.
+
+``` {python}
+# sort dataset by year
+accident_atlas.sort_values(by='UJAHR', inplace=True)
+
+# reset index
+accident_atlas.reset_index(drop=True, inplace=True)
+
+# regenerate 'OBJECTID' column
+accident_atlas['OBJECTID'] = pd.Series(range(1, accident_atlas.shape[0] + 1))
+
+print(accident_atlas.info(), "\n")
+accident_atlas.head()
+```
+
+
+
+:::
+

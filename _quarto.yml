@@ -18,7 +18,17 @@ book:
   date: today # "2024-03-05" Jahr-Monat-Tag / year-month-day
   chapters:
     - index.qmd
-    - skript/einlesen-strukturierter-datensaetze.qmd
+    - skript/einleitung.qmd
+    - skript/grundlagen.qmd
+    - skript/datentypoperationen.qmd
+    - skript/numpy-pandas.qmd
+    - skript/zeitreihen.qmd
+    - skript/marktdaten-oesterreich.qmd
+    - skript/modul-glob.qmd
+    - skript/maskierte-arrays.qmd
+    - skript/dateiformate.qmd
+    - skript/daswichtigste.qmd
+    - skript/lernzielkontrolle.qmd
 
   sidebar:
     title: "Reading Structured Datasets Method Module"
